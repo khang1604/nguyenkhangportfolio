@@ -1,21 +1,20 @@
 # Project Progress & Handoff Log: NguyenKhangPortfolio
 
-### Session Status [2026-11-01 20:08]
-- **Task:** Fix Light Mode Background & Text Contrast Invariants | **State:** Completed (100%)
-- **Tech Stack:** Next.js 15.5+, React 19, Tailwind CSS v4, Lucide Icons, Zod, Dark OLED & Light Slate Mode, i18n
+### Session Status [2026-11-01 20:11]
+- **Task:** Implement Mandatory Pre-Commit Error Diagnostics Rule & Git Hook | **State:** Completed (100%)
+- **Tech Stack:** Next.js 15.5+, React 19, TypeScript, Tailwind CSS v4, Lucide Icons, Zod, Git Hooks
 - **Target Location:** `C:\Project\NguyenKhangPortfolio`
 
 #### Completed Deliverables:
-1. **Light Mode Bug Root Cause Analysis & Fix:**
-   - **Root Cause:** `frontend/src/app/layout.tsx` hardcoded `bg-black text-slate-100` on `<body>` and `dark` on `<html>`. In Tailwind CSS v4, utility classes on `<body>` override CSS element selectors like `body { background-color: var(--background); }`, preventing the light background from rendering when toggling themes.
-   - **Fix Applied:**
-     - Removed hardcoded `dark` and `bg-black text-slate-100` from `layout.tsx`. Added `suppressHydrationWarning` and an inline script in `<head>` to prevent theme flash.
-     - Updated `ThemeContext.tsx` to keep DOM attributes (`data-theme`), CSS classes (`.dark` / `.light`), and `style.colorScheme` fully synchronized.
-     - Updated `globals.css` to map `:root, [data-theme='dark'], .dark` and `[data-theme='light'], .light` to CSS variables and smooth transitions.
-     - Explicitly bound `var(--background)` and `var(--foreground)` to the main application container and form inputs.
-     - Ensured WCAG 2.1 compliance (> 4.5:1 contrast) across all text, links, buttons, and modal dialogs in both light and dark modes.
-2. **Build & Quality Assurance:**
-   - Ran `npm run build` with 0 errors and 0 warnings (100% static prerendered routes).
+1. **Pre-Commit Diagnostics Automation:**
+   - Added `"typecheck": "tsc --noEmit"` and `"diagnose": "tsc --noEmit && next build"` scripts to `frontend/package.json`.
+   - Created `frontend/src/app/not-found.tsx` to handle HTTP 404 and satisfy Next.js 15 App Router static generation invariants.
+   - Installed native Git pre-commit hook in `.git/hooks/pre-commit` to automatically run `npm run diagnose` on every commit and block commits if diagnostics fail.
+2. **Standardized Local Project Rules (`AGENTS.md`):**
+   - Added `Section 3: MANDATORY PRE-COMMIT DIAGNOSTICS & VERIFICATION (HARD RULE)` with Fail-Closed policy, prohibiting any commit with non-zero exit code or bypass flags (`--no-verify`).
+   - Updated tech stack and directory specifications to reflect Next.js 15 App Router and Lucide Icons.
+3. **Quality Assurance & Verification:**
+   - Executed `npm run diagnose`: Passed 100% (0 errors, 0 warnings, static prerendered).
 
 #### Next Actions:
 1. Commit and push changes to GitHub `main` branch.

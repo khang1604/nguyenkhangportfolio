@@ -2,86 +2,81 @@
 
 ## 1. Project Overview & Tech Stack
 - **Project Name:** NguyenKhangPortfolio
-- **Domain:** Personal Portfolio & Achievements Showcase
-- **Tech Stack:** React 19+ (Vite), TypeScript, FontAwesome (`@fortawesome/react-fontawesome`)
+- **Domain:** Personal Developer Portfolio, AI & Systems Showcase
+- **Tech Stack:** Next.js 15.5+ (App Router), React 19, TypeScript, Tailwind CSS v4, Lucide Icons, Zod
 - **Package Manager:** `npm` (Strictly enforced. Never run `yarn` or `pnpm` in this repository)
 - **Primary Domain Folder:** `frontend/`
+- **Remote Repository:** `https://github.com/khang1604/nguyenkhangportfolio.git` (`main` branch)
 
 ---
 
 ## 2. Directory Layout & Architecture Standards (Zero Root Clutter)
-- Root is reserved for configurations, CI/CD, documentation (`docs/`), and domain containers (`frontend/`, `docs/`, `.local/`).
-- Do not create scratch files or random notes in the repository root.
-  - Scratch scripts, local notes, or developer tests must reside exclusively in `.local/scratch/` or `.local/docs/`.
-  - Architecture specs, RFCs, and formal documentation must reside in `docs/architecture/`.
-  - Progress updates must be recorded in `docs/PROGRESS.md`.
+- Root is strictly reserved for configurations, CI/CD, documentation (`docs/`), and domain containers (`frontend/`, `docs/`, `.local/`).
+- Scratch scripts, local notes, or developer tests must reside exclusively in `.local/scratch/` or `.local/docs/`.
+- Progress updates must be continuously recorded in `docs/PROGRESS.md`.
 
 ### Frontend Structure (`frontend/src/`):
 ```text
 frontend/src/
-├── assets/          # Static assets, images, icons
-├── components/      # Shared UI presentation components (Atomic/Reusable)
-│   ├── common/      # Buttons, Badges, Modals, Navbar, Footer
-│   └── icons/       # FontAwesome icon abstractions & wrappers
-├── features/        # Feature-driven domains
-│   ├── about/       # Personal summary, bio, career milestones
-│   ├── achievements/# Awards, certifications, hackathon results
-│   ├── projects/    # Portfolio projects showcase & details
-│   └── contact/     # Contact links, form & social channels
+├── app/             # Next.js 15 App Router (layout.tsx, page.tsx, globals.css, not-found.tsx)
+├── components/      # Shared UI presentation components
+│   ├── common/      # RevealOnScroll, interactive elements
+│   └── icons/       # Lucide and Brand SVG Icons (GithubIcon, LinkedinIcon)
 ├── core/            # Core cross-cutting utilities & standards
-│   ├── api/         # JSend envelope contracts & fetch wrappers
-│   ├── logger/      # Structured 4-level logger (DEBUG, INFO, WARN, ERROR)
-│   └── validation/  # Zod schemas for runtime validation
-├── types/           # Shared domain TypeScript types & interfaces
-├── styles/          # Global CSS / Theme variables
-├── App.tsx          # Main Application composition
-└── main.tsx         # Application entry point
+│   ├── theme/       # ThemeContext (OLED Dark & Clean Slate Light Mode)
+│   ├── i18n/        # LanguageContext (Bilingual VI/EN)
+│   ├── hooks/       # Custom React hooks (useScrollReveal)
+│   └── logger/      # Structured project logger
+└── types/           # Shared domain TypeScript types & interfaces
 ```
 
 ---
 
-## 3. React & TypeScript Coding Standards
-1. **Naming Conventions:**
-   - **Components:** PascalCase (e.g., `AchievementCard.tsx`, `HeroSection.tsx`).
-   - **Hooks:** camelCase prefixed with `use` (e.g., `useScrollSpy.ts`, `useTheme.ts`).
-   - **Utilities & Helpers:** camelCase (e.g., `formatDate.ts`, `validatePayload.ts`).
-   - **Types/Interfaces:** PascalCase with descriptive names (e.g., `ProjectItem`, `AchievementRecord`).
-   - **Constants:** UPPER_SNAKE_CASE (e.g., `MAX_FEATURED_PROJECTS`, `DEFAULT_THEME`).
+## 3. MANDATORY PRE-COMMIT DIAGNOSTICS & VERIFICATION (HARD RULE)
 
-2. **Component Architecture & Best Practices:**
-   - Prefer Named Exports over Default Exports for predictable imports and refactoring.
-   - Keep components under 150 lines. Decompose large views into focused sub-components.
-   - Use early returns and guard clauses; avoid nested ternary operators in JSX.
-   - Component props must have explicit TypeScript `interface` or `type` definitions. No implicit `any`.
+> [!IMPORTANT]
+> **FAIL-CLOSED POLICY (Deny by Default):**
+> Before executing ANY `git commit` or declaring any code modification complete, the developer or agent **MUST** run automated diagnostic checks. Committing untested or broken code is **STRICTLY PROHIBITED**.
 
-3. **FontAwesome Icon Usage Pattern:**
-   - Centralize FontAwesome icon imports or create clean icon wrapper components in `components/icons/`.
-   - Explicitly import individual icons from `@fortawesome/free-solid-svg-icons` or `@fortawesome/free-brands-svg-icons` to allow proper tree-shaking:
-     ```tsx
-     import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-     import { faTrophy, faBriefcase } from '@fortawesome/free-solid-svg-icons';
-     import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-     ```
+### Diagnostic Commands (Run inside `frontend/`):
+1. **Full Diagnostics (TypeCheck + Production Build):**
+   ```bash
+   cd frontend && npm run diagnose
+   ```
+   *Executes `tsc --noEmit && next build` to verify 100% type safety and static page prerendering.*
 
-4. **Runtime Validation with Zod:**
-   - Validate external inputs, config files, contact form submissions, and API responses through Zod schemas in `core/validation/`.
-   - Never cast untrusted payloads using `as unknown as Type` without runtime parsing.
+2. **Linting Check:**
+   ```bash
+   cd frontend && npm run lint
+   ```
+   *Executes code linting via `oxlint`.*
 
-5. **Logging Standards:**
-   - Never leave raw `console.log()` statements in production code.
-   - Use the centralized structured logger from `core/logger/logger.ts` supporting `DEBUG`, `INFO`, `WARN`, `ERROR` levels with production log redaction.
-
-6. **Unified API Contract (JSend Specification):**
-   - All network responses must conform to the JSend specification:
-     - **Success:** `{ success: true, data: T, message?: string }`
-     - **Failure:** `{ success: false, error: { code: string, message: string, details?: unknown } }`
+### Invariant Rules:
+1. **Zero Errors Allowed:** If `npm run diagnose` or `tsc --noEmit` returns a non-zero exit code or any compilation/type error, the commit is **IMMEDIATELY BLOCKED**.
+2. **No Bypass Flags:** Never use `--no-verify` or disable Git pre-commit hooks to bypass diagnostic failures.
+3. **Automated Git Hook:** A Git `pre-commit` hook is configured in `.git/hooks/pre-commit` to automatically run `npm run diagnose` prior to every local commit.
+4. **Root Cause Resolution:** When a diagnostic failure occurs, diagnose the root cause, fix the source code, and re-run diagnostics until an exit code of `0` is achieved.
 
 ---
 
-## 4. Anti-Patterns to Avoid
+## 4. UI/UX & Coding Standards
+1. **Iconography:** Use exclusively **Lucide Icons** and clean SVG wrappers. Never use raw emojis as UI icons.
+2. **Contrast & Theme Invariants (WCAG 2.1):**
+   - Minimum 4.5:1 text contrast in both OLED Dark (`#000000`) and Light Mode (`#f8fafc`).
+   - Use dynamic CSS variables (`var(--background)`, `var(--foreground)`, `var(--card)`, `var(--border)`, `var(--muted)`).
+   - Never hardcode static dark colors (`bg-black`, `text-white`, `text-zinc-400`) on layout roots or interactive elements without theme-aware styling.
+3. **Strict Type Safety:**
+   - Zero `any` in TypeScript.
+   - Runtime validation on forms and external inputs via `Zod`.
+4. **Conventional Commits:**
+   - Format: `<type>(<scope>): <concise description>` (e.g., `fix(theme): ...`, `feat(portfolio): ...`, `chore(rules): ...`).
+
+---
+
+## 5. Anti-Patterns to Avoid
+- ❌ Do NOT commit code without running `npm run diagnose`.
 - ❌ Do NOT place temporary scripts, files, or markdown dumps in repository root.
 - ❌ Do NOT use `any` type in TypeScript.
 - ❌ Do NOT mutate React state or arrays directly.
 - ❌ Do NOT pass `async` callbacks directly into array methods like `.forEach()`.
-- ❌ Do NOT hardcode contact links or API keys in component views. Store them in validated configuration or environment variables.
 - ❌ Do NOT install packages without explicit permission, and strictly use `npm`.
