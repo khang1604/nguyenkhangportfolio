@@ -27,6 +27,7 @@ import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
 import { ThemeProvider, useTheme } from '@/core/theme/ThemeContext';
 import { LanguageProvider, useLanguage } from '@/core/i18n/LanguageContext';
 import { RevealOnScroll } from '@/components/common/RevealOnScroll';
+import { BackgroundEffect } from '@/components/common/BackgroundEffect';
 
 // Zod Contact Form Schema
 const ContactSchema = z.object({
@@ -243,8 +244,8 @@ function PortfolioAppContent() {
       className="relative min-h-screen flex flex-col font-sans transition-colors duration-300"
       style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}
     >
-      {/* Background Tech Grid */}
-      <div className="fixed inset-0 oled-grid-pattern pointer-events-none z-0" />
+      {/* Redesigned High-Tech Ambient Aurora & Precision Grid Background */}
+      <BackgroundEffect />
 
       {/* Navigation Header */}
       <header
