@@ -18,6 +18,7 @@ import {
   Database,
   Boxes,
   X,
+  Menu,
   Sun,
   Moon,
   Globe,
@@ -207,6 +208,7 @@ function PortfolioAppContent() {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -258,14 +260,15 @@ function PortfolioAppContent() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a
             href="#about"
-            className="flex items-center gap-2.5 font-mono-tech text-sm sm:text-base font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="flex items-center gap-2 font-mono-tech text-sm sm:text-base font-semibold text-cyan-400 hover:text-cyan-300 transition-colors flex-shrink-0"
           >
-            <Terminal className="w-5 h-5 text-cyan-400" />
+            <Terminal className="w-5 h-5 text-cyan-400 flex-shrink-0" />
             <span>nguyenkhang.dev</span>
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1" />
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-0.5" />
           </a>
 
-          <nav className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium">
+          {/* Desktop Navigation Links (>= md) */}
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <a
               href="#about"
               className="hover:text-cyan-500 transition-colors"
@@ -275,7 +278,7 @@ function PortfolioAppContent() {
             </a>
             <a
               href="#skills"
-              className="hover:text-cyan-500 transition-colors hidden sm:inline-block"
+              className="hover:text-cyan-500 transition-colors"
               style={{ color: 'var(--muted)' }}
             >
               {t.nav.skills}
@@ -289,7 +292,7 @@ function PortfolioAppContent() {
             </a>
             <a
               href="#contact"
-              className="hover:text-cyan-500 transition-colors hidden sm:inline-block"
+              className="hover:text-cyan-500 transition-colors"
               style={{ color: 'var(--muted)' }}
             >
               {t.nav.contact}
@@ -326,13 +329,122 @@ function PortfolioAppContent() {
             {/* Contact CTA */}
             <a
               href="#contact"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/20 transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/20 transition-all cursor-pointer text-xs font-semibold"
             >
               <Send className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{t.nav.contact}</span>
+              <span>{t.nav.contact}</span>
             </a>
           </nav>
+
+          {/* Mobile Quick Controls (< md) */}
+          <div className="flex md:hidden items-center gap-2">
+            {/* Mobile Language Switcher */}
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              title={t.nav.langSwitch}
+              aria-label="Toggle language"
+              className="flex items-center gap-1 px-2 py-1.5 rounded-lg border text-xs font-mono-tech font-semibold theme-card cursor-pointer"
+            >
+              <Globe className="w-3.5 h-3.5 text-cyan-400" />
+              <span>{language === 'vi' ? 'EN' : 'VI'}</span>
+            </button>
+
+            {/* Mobile Theme Switcher */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              title={theme === 'dark' ? t.nav.themeLight : t.nav.themeDark}
+              aria-label="Toggle theme"
+              className="p-1.5 rounded-lg border theme-card cursor-pointer"
+              style={{ color: 'var(--muted)' }}
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-amber-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-cyan-500" />
+              )}
+            </button>
+
+            {/* Mobile Hamburger / Close Toggle */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              title="Menu"
+              aria-label="Toggle navigation menu"
+              className="p-1.5 rounded-lg border theme-card text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 text-cyan-400" />
+              ) : (
+                <Menu className="w-5 h-5 text-cyan-400" />
+              )}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Dropdown Drawer Menu */}
+        {mobileMenuOpen && (
+          <div
+            className="md:hidden border-t backdrop-blur-xl transition-all animate-fade-in-down"
+            style={{
+              backgroundColor: 'var(--navbar-bg)',
+              borderColor: 'var(--border)',
+            }}
+          >
+            <div className="px-4 py-4 space-y-3">
+              <nav className="flex flex-col space-y-1.5">
+                <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  <Terminal className="w-4 h-4 text-cyan-400" />
+                  <span>{t.nav.about}</span>
+                </a>
+                <a
+                  href="#skills"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  <Cpu className="w-4 h-4 text-cyan-400" />
+                  <span>{t.nav.skills}</span>
+                </a>
+                <a
+                  href="#projects"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  <Code2 className="w-4 h-4 text-cyan-400" />
+                  <span>{t.nav.projects}</span>
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  <Send className="w-4 h-4 text-cyan-400" />
+                  <span>{t.nav.contact}</span>
+                </a>
+              </nav>
+
+              <div className="pt-2 border-t" style={{ borderColor: 'var(--border)' }}>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-semibold text-sm shadow-md cursor-pointer"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>{t.hero.contactBtn}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Main Content */}
@@ -343,56 +455,56 @@ function PortfolioAppContent() {
             <span>{t.hero.welcome}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-mono-tech animate-fade-in-up stagger-1">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight font-mono-tech leading-tight animate-fade-in-up stagger-1">
             {t.hero.greeting}{' '}
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
               {t.hero.name}
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl font-light leading-relaxed animate-fade-in-up stagger-2" style={{ color: 'var(--muted)' }}>
+          <p className="text-base sm:text-xl font-light leading-relaxed animate-fade-in-up stagger-2" style={{ color: 'var(--muted)' }}>
             {t.hero.bio}
           </p>
 
           {/* 3 Highlights ban đầu với giao diện OLED hiện đại */}
-          <div className="space-y-3.5 pt-2 animate-fade-in-up stagger-3">
-            <div className="p-4 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 flex-shrink-0">
-                <Code2 className="w-5 h-5" />
+          <div className="space-y-3 pt-2 animate-fade-in-up stagger-3">
+            <div className="p-3.5 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
+              <div className="w-9 h-9 sm:w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 flex-shrink-0">
+                <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div>
-                <strong className="block text-base font-semibold font-mono-tech">
+              <div className="min-w-0 flex-1">
+                <strong className="block text-sm sm:text-base font-semibold font-mono-tech leading-snug">
                   {t.hero.highlight1Title}
                 </strong>
-                <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
+                <p className="text-xs sm:text-sm mt-1 leading-relaxed" style={{ color: 'var(--muted)' }}>
                   {t.hero.highlight1Desc}
                 </p>
               </div>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/25 flex items-center justify-center text-blue-400 flex-shrink-0">
-                <Briefcase className="w-5 h-5" />
+            <div className="p-3.5 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
+              <div className="w-9 h-9 sm:w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/25 flex items-center justify-center text-blue-400 flex-shrink-0">
+                <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div>
-                <strong className="block text-base font-semibold font-mono-tech">
+              <div className="min-w-0 flex-1">
+                <strong className="block text-sm sm:text-base font-semibold font-mono-tech leading-snug">
                   {t.hero.highlight2Title}
                 </strong>
-                <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
+                <p className="text-xs sm:text-sm mt-1 leading-relaxed" style={{ color: 'var(--muted)' }}>
                   {t.hero.highlight2Desc}
                 </p>
               </div>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400 flex-shrink-0">
-                <GraduationCap className="w-5 h-5" />
+            <div className="p-3.5 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
+              <div className="w-9 h-9 sm:w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400 flex-shrink-0">
+                <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div>
-                <strong className="block text-base font-semibold font-mono-tech">
+              <div className="min-w-0 flex-1">
+                <strong className="block text-sm sm:text-base font-semibold font-mono-tech leading-snug">
                   {t.hero.highlight3Title}
                 </strong>
-                <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
+                <p className="text-xs sm:text-sm mt-1 leading-relaxed" style={{ color: 'var(--muted)' }}>
                   {t.hero.highlight3Desc}
                 </p>
               </div>
@@ -400,32 +512,34 @@ function PortfolioAppContent() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3.5 pt-4 animate-fade-in-up stagger-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 animate-fade-in-up stagger-4">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-semibold text-sm hover:opacity-95 transition-all shadow-lg shadow-cyan-500/20"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-semibold text-sm hover:opacity-95 transition-all shadow-lg shadow-cyan-500/20"
             >
               <Send className="w-4 h-4" />
               <span>{t.hero.contactBtn}</span>
             </a>
-            <a
-              href="https://github.com/khang1604"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border theme-card text-sm hover:border-cyan-500/50 transition-all"
-            >
-              <GithubIcon className="w-4 h-4" />
-              <span>GitHub</span>
-            </a>
-            <a
-              href="https://linkedin.com/in/nguyenkhang"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border theme-card text-sm hover:border-cyan-500/50 transition-all"
-            >
-              <LinkedinIcon className="w-4 h-4" />
-              <span>LinkedIn</span>
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://github.com/khang1604"
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border theme-card text-sm hover:border-cyan-500/50 transition-all"
+              >
+                <GithubIcon className="w-4 h-4" />
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://linkedin.com/in/nguyenkhang"
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border theme-card text-sm hover:border-cyan-500/50 transition-all"
+              >
+                <LinkedinIcon className="w-4 h-4" />
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </section>
 
@@ -562,7 +676,7 @@ function PortfolioAppContent() {
                 animation="fade-up"
                 delayMs={(index % 2) * 150}
               >
-                <div className="group relative p-6 rounded-xl border theme-card hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between h-full shadow-lg">
+                <div className="group relative p-4 sm:p-6 rounded-xl border theme-card hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between h-full shadow-lg">
                   <div className="space-y-4">
                     {/* Category & Links Header */}
                     <div className="flex items-center justify-between">
@@ -675,7 +789,7 @@ function PortfolioAppContent() {
           <RevealOnScroll animation="fade-up" delayMs={100}>
             <form
               onSubmit={handleContactSubmit}
-              className="p-6 sm:p-8 rounded-2xl border theme-card space-y-5 shadow-2xl"
+              className="p-5 sm:p-8 rounded-2xl border theme-card space-y-4 sm:space-y-5 shadow-2xl"
             >
               {formStatus.type === 'success' && (
                 <div className="p-4 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-sm flex items-center gap-3">
@@ -825,7 +939,7 @@ function PortfolioAppContent() {
           aria-modal="true"
         >
           <div
-            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl border theme-card p-6 sm:p-8 space-y-6 shadow-2xl"
+            className="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl border theme-card p-4 sm:p-8 space-y-4 sm:space-y-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
             style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)' }}
           >
