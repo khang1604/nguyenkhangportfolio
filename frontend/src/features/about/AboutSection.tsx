@@ -16,29 +16,29 @@ export const AboutSection: React.FC = () => {
   return (
     <section id="about" className="section hero-section">
       <div className="hero-content">
-        <span className="hero-badge">{t.hero.welcome}</span>
-        <h1 className="hero-title">
+        <span className="hero-badge animate-fade-in-down">{t.hero.welcome}</span>
+        <h1 className="hero-title animate-fade-in-up stagger-1">
           {t.hero.greeting} <span className="highlight-text">{t.hero.name}</span>
         </h1>
-        <p className="hero-role">{t.hero.role}</p>
-        <p className="hero-subtitle">{t.hero.bio}</p>
+        <p className="hero-role animate-fade-in-up stagger-2">{t.hero.role}</p>
+        <p className="hero-subtitle animate-fade-in-up stagger-3">{t.hero.bio}</p>
 
         <div className="hero-highlights">
-          <div className="highlight-item">
+          <div className="highlight-item animate-fade-in-up stagger-4">
             <FontAwesomeIcon icon={faCode} className="icon-gold" />
             <div>
               <strong>{t.hero.highlight1Title}</strong>
               <p>{t.hero.highlight1Desc}</p>
             </div>
           </div>
-          <div className="highlight-item">
+          <div className="highlight-item animate-fade-in-up stagger-5">
             <FontAwesomeIcon icon={faBriefcase} className="icon-blue" />
             <div>
               <strong>{t.hero.highlight2Title}</strong>
               <p>{t.hero.highlight2Desc}</p>
             </div>
           </div>
-          <div className="highlight-item">
+          <div className="highlight-item animate-fade-in-up stagger-6">
             <FontAwesomeIcon icon={faRocket} className="icon-purple" />
             <div>
               <strong>{t.hero.highlight3Title}</strong>
@@ -47,7 +47,7 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="hero-actions">
+        <div className="hero-actions animate-fade-in-up stagger-7">
           <a href="#contact" className="btn btn-primary">
             <FontAwesomeIcon icon={faEnvelope} /> {t.hero.contactBtn}
           </a>

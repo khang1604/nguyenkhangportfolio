@@ -5,6 +5,7 @@ import { AboutSection } from './features/about/AboutSection';
 import { ProjectCard } from './features/projects/ProjectCard';
 import { ProjectModal } from './features/projects/ProjectModal';
 import { ContactSection } from './features/contact/ContactSection';
+import { RevealOnScroll } from './components/common/RevealOnScroll';
 import { INITIAL_PROJECTS } from './features/projects/projectsData';
 import { FontAwesomeIcon, faCode } from './components/icons';
 import { ThemeProvider } from './core/theme/ThemeContext';
@@ -24,25 +25,36 @@ const PortfolioContent: React.FC = () => {
 
         {/* Featured Projects Section */}
         <section id="projects" className="section projects-section">
-          <div className="section-header">
-            <span className="section-badge">{t.projects.badge}</span>
-            <h2 className="section-title">
-              <FontAwesomeIcon icon={faCode} className="icon-blue" /> {t.projects.title}
-            </h2>
-            <p className="section-subtitle">{t.projects.subtitle}</p>
-          </div>
+          <RevealOnScroll animation="fade-up">
+            <div className="section-header">
+              <span className="section-badge">{t.projects.badge}</span>
+              <h2 className="section-title">
+                <FontAwesomeIcon icon={faCode} className="icon-blue" /> {t.projects.title}
+              </h2>
+              <p className="section-subtitle">{t.projects.subtitle}</p>
+            </div>
+          </RevealOnScroll>
+
           <div className="projects-grid">
-            {INITIAL_PROJECTS.map((project) => (
-              <ProjectCard
+            {INITIAL_PROJECTS.map((project, index) => (
+              <RevealOnScroll
                 key={project.id}
-                project={project}
-                onOpenDetails={setSelectedProject}
-              />
+                animation="fade-up"
+                delayMs={(index % 2) * 150}
+              >
+                <ProjectCard
+                  project={project}
+                  onOpenDetails={setSelectedProject}
+                />
+              </RevealOnScroll>
             ))}
           </div>
         </section>
 
-        <ContactSection />
+        {/* Contact Section */}
+        <RevealOnScroll animation="fade-up" delayMs={100}>
+          <ContactSection />
+        </RevealOnScroll>
       </main>
 
       <Footer />
