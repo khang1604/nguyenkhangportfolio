@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 import {
   Terminal,
   Code2,
+  Briefcase,
+  GraduationCap,
   Cpu,
   Layers,
-  Sparkles,
   Send,
   ExternalLink,
   Lock,
@@ -15,7 +16,6 @@ import {
   ArrowRight,
   Server,
   Database,
-  Bot,
   Boxes,
   X,
   Sun,
@@ -253,7 +253,7 @@ function PortfolioAppContent() {
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a
-            href="#hero"
+            href="#about"
             className="flex items-center gap-2.5 font-mono-tech text-sm sm:text-base font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
           >
             <Terminal className="w-5 h-5 text-cyan-400" />
@@ -264,7 +264,7 @@ function PortfolioAppContent() {
           <nav className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium">
             <a
               href="#about"
-              className="text-zinc-400 hover:text-cyan-400 transition-colors hidden sm:inline-block"
+              className="text-zinc-400 hover:text-cyan-400 transition-colors"
             >
               {t.nav.about}
             </a>
@@ -328,51 +328,64 @@ function PortfolioAppContent() {
 
       {/* Main Content */}
       <main className="relative z-10 flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-24 sm:space-y-32">
-        {/* HERO SECTION */}
-        <section id="hero" className="pt-6 sm:pt-12 pb-6 max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono-tech animate-fade-in-down">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>{t.hero.status}</span>
+        {/* HERO / ABOUT SECTION (Nội dung nguyên bản, thiết kế mới) */}
+        <section id="about" className="pt-6 sm:pt-12 pb-6 max-w-3xl space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-mono-tech animate-fade-in-down">
+            <span>{t.hero.welcome}</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight font-mono-tech animate-fade-in-up stagger-1">
-            {t.hero.greeting} <br />
+            {t.hero.greeting}{' '}
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
               {t.hero.name}
             </span>
           </h1>
 
           <p className="text-lg sm:text-xl font-light leading-relaxed animate-fade-in-up stagger-2" style={{ color: 'var(--muted)' }}>
-            <strong className="font-semibold" style={{ color: 'var(--foreground)' }}>
-              {t.hero.role}
-            </strong>{' '}
             {t.hero.bio}
           </p>
 
-          {/* Quick Metrics Ribbon */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 animate-fade-in-up stagger-3">
-            <div className="p-3.5 rounded-lg border theme-card">
-              <div className="text-xl sm:text-2xl font-bold text-cyan-400 font-mono-tech">
-                {t.hero.metric1Val}
+          {/* 3 Highlights ban đầu với giao diện OLED hiện đại */}
+          <div className="space-y-3.5 pt-2 animate-fade-in-up stagger-3">
+            <div className="p-4 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 flex-shrink-0">
+                <Code2 className="w-5 h-5" />
               </div>
-              <div className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-                {t.hero.metric1Label}
-              </div>
-            </div>
-            <div className="p-3.5 rounded-lg border theme-card">
-              <div className="text-xl sm:text-2xl font-bold text-emerald-400 font-mono-tech">
-                {t.hero.metric2Val}
-              </div>
-              <div className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-                {t.hero.metric2Label}
+              <div>
+                <strong className="block text-base font-semibold font-mono-tech">
+                  {t.hero.highlight1Title}
+                </strong>
+                <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
+                  {t.hero.highlight1Desc}
+                </p>
               </div>
             </div>
-            <div className="col-span-2 sm:col-span-1 p-3.5 rounded-lg border theme-card">
-              <div className="text-xl sm:text-2xl font-bold text-indigo-400 font-mono-tech">
-                {t.hero.metric3Val}
+
+            <div className="p-4 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/25 flex items-center justify-center text-blue-400 flex-shrink-0">
+                <Briefcase className="w-5 h-5" />
               </div>
-              <div className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-                {t.hero.metric3Label}
+              <div>
+                <strong className="block text-base font-semibold font-mono-tech">
+                  {t.hero.highlight2Title}
+                </strong>
+                <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
+                  {t.hero.highlight2Desc}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-5 rounded-xl border theme-card flex items-start gap-3.5 sm:gap-4 transition-all">
+              <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400 flex-shrink-0">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <div>
+                <strong className="block text-base font-semibold font-mono-tech">
+                  {t.hero.highlight3Title}
+                </strong>
+                <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
+                  {t.hero.highlight3Desc}
+                </p>
               </div>
             </div>
           </div>
@@ -380,11 +393,11 @@ function PortfolioAppContent() {
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-3.5 pt-4 animate-fade-in-up stagger-4">
             <a
-              href="#projects"
+              href="#contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-semibold text-sm hover:opacity-95 transition-all shadow-lg shadow-cyan-500/20"
             >
-              <span>{t.hero.viewProjects}</span>
-              <ArrowRight className="w-4 h-4" />
+              <Send className="w-4 h-4" />
+              <span>{t.hero.contactBtn}</span>
             </a>
             <a
               href="https://github.com/khang1604"
@@ -404,65 +417,6 @@ function PortfolioAppContent() {
               <LinkedinIcon className="w-4 h-4" />
               <span>LinkedIn</span>
             </a>
-          </div>
-        </section>
-
-        {/* ABOUT ME SECTION */}
-        <section id="about" className="space-y-8 scroll-mt-24">
-          <RevealOnScroll animation="fade-up">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 text-xs font-mono-tech text-cyan-400 tracking-wider uppercase">
-                <Sparkles className="w-4 h-4" />
-                <span>{t.about.badge}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold font-mono-tech">
-                {t.about.title}
-              </h2>
-            </div>
-          </RevealOnScroll>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <RevealOnScroll animation="fade-up" delayMs={50}>
-              <div className="p-6 rounded-xl border theme-card transition-all space-y-3 h-full">
-                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-                  <Server className="w-5 h-5" />
-                </div>
-                <h3 className="font-semibold text-lg font-mono-tech">
-                  {t.about.card1Title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
-                  {t.about.card1Desc}
-                </p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="fade-up" delayMs={150}>
-              <div className="p-6 rounded-xl border theme-card transition-all space-y-3 h-full">
-                <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
-                  <Layers className="w-5 h-5" />
-                </div>
-                <h3 className="font-semibold text-lg font-mono-tech">
-                  {t.about.card2Title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
-                  {t.about.card2Desc}
-                </p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="fade-up" delayMs={250}>
-              <div className="p-6 rounded-xl border theme-card transition-all space-y-3 h-full">
-                <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
-                  <Bot className="w-5 h-5" />
-                </div>
-                <h3 className="font-semibold text-lg font-mono-tech">
-                  {t.about.card3Title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
-                  {t.about.card3Desc}
-                </p>
-              </div>
-            </RevealOnScroll>
           </div>
         </section>
 
@@ -586,6 +540,9 @@ function PortfolioAppContent() {
               <h2 className="text-2xl sm:text-3xl font-bold font-mono-tech">
                 {t.projects.title}
               </h2>
+              <p className="text-sm" style={{ color: 'var(--muted)' }}>
+                {t.projects.subtitle}
+              </p>
             </div>
           </RevealOnScroll>
 
