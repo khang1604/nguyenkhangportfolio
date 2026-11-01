@@ -8,6 +8,7 @@ import {
   faCheck,
   faLightbulb,
   faRocket,
+  faLock,
 } from '../../components/icons';
 import type { Project } from '../../core/validation/schemas';
 import { useLanguage } from '../../core/i18n/LanguageContext';
@@ -113,7 +114,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Modal Footer */}
         <div className="modal-footer">
           <div className="modal-actions">
-            {project.githubUrl && (
+            {project.githubUrl ? (
               <a
                 href={project.githubUrl}
                 target="_blank"
@@ -122,6 +123,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               >
                 <FontAwesomeIcon icon={faGithub} /> {t.projects.sourceCode}
               </a>
+            ) : (
+              <span className="modal-private-note">
+                <FontAwesomeIcon icon={faLock} /> {t.projects.privateRepo}
+              </span>
             )}
             {project.demoUrl && (
               <a
@@ -142,4 +147,3 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     </div>
   );
 };
-

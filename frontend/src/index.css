@@ -463,6 +463,32 @@ a {
   color: var(--text-primary);
 }
 
+.private-repo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  font-size: 0.95rem;
+  background-color: rgba(245, 158, 11, 0.12);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.modal-private-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  background-color: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+}
+
 .project-title {
   font-size: 1.3rem;
   font-weight: 700;

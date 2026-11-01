@@ -44,6 +44,8 @@ export interface TranslationDictionary {
     close: string;
     liveDemo: string;
     sourceCode: string;
+    privateRepo: string;
+    clientProject: string;
   };
   contact: {
     badge: string;
@@ -110,6 +112,8 @@ export const translations: Record<Language, TranslationDictionary> = {
       close: 'Đóng',
       liveDemo: 'Bản Demo Trực Tuyến',
       sourceCode: 'Mã Nguồn GitHub',
+      privateRepo: 'Mã nguồn nội bộ khách hàng',
+      clientProject: 'Dự Án Khách Hàng',
     },
     contact: {
       badge: 'Kết Nối',
@@ -172,8 +176,10 @@ export const translations: Record<Language, TranslationDictionary> = {
       keyFeatures: 'Core Capabilities',
       learnings: 'Lessons Learned & Optimizations',
       close: 'Close',
-      liveDemo: 'Live Demo',
+      liveDemo: 'Live Production Demo',
       sourceCode: 'GitHub Source',
+      privateRepo: 'Client Private Repository',
+      clientProject: 'Client Handover',
     },
     contact: {
       badge: 'Connect',

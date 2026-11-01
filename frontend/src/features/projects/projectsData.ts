@@ -2,7 +2,49 @@ import type { Project } from '../../core/validation/schemas';
 
 export const INITIAL_PROJECTS: Project[] = [
   {
-    id: 'proj-1',
+    id: 'proj-doanhoi',
+    title: 'Cổng Thông Tin Đoàn - Hội HUTECH (doanhoihutech.vn)',
+    shortDescription: {
+      vi: 'Cổng thông tin & quản lý hoạt động chính thức của Đoàn Thanh niên - Hội Sinh viên Trường Đại học Công nghệ TP.HCM (HUTECH) phục vụ hàng chục ngàn sinh viên.',
+      en: 'Official web portal & activity management platform for the Youth Union and Student Association of HUTECH University, serving tens of thousands of students.',
+    },
+    architectureOverview: {
+      vi: 'Nền tảng Full Stack xây dựng trên Next.js (SSR/SSG) kết hợp Mantine UI cho trải nghiệm người dùng hiện đại và chuẩn responsive. Cơ sở dữ liệu NoSQL MongoDB linh hoạt quản lý các cấu trúc dữ liệu tin tức, bài viết phong trào, và tài liệu sinh viên. Tích hợp Cloudinary API tối ưu hóa phân phối hình ảnh/media trên CDN toàn cầu với độ trễ thấp.',
+      en: 'Full-stack platform built on Next.js (SSR/SSG) and Mantine UI delivering modern responsive experiences. Scalable MongoDB NoSQL database modeling complex student profiles, event feeds, and youth movement activities. Cloudinary API integration for automated image/document transformations over a high-speed global CDN.',
+    },
+    keyFeatures: [
+      {
+        vi: 'Hệ thống tin tức, sự kiện và phong trào Đoàn - Hội cập nhật theo thời gian thực',
+        en: 'Real-time broadcast system for youth movement events, official announcements, and university activities',
+      },
+      {
+        vi: 'Giao diện Mantine UI trực quan, đồng bộ nhận diện thương hiệu HUTECH trên cả PC và thiết bị di động',
+        en: 'Modern Mantine UI system fully aligned with HUTECH brand identity across desktop and mobile',
+      },
+      {
+        vi: 'Xử lý và tải lên tệp tin/hình ảnh sự kiện tự động qua CDN Cloudinary với chất lượng tối ưu',
+        en: 'Automated event media uploads, compression, and delivery powered by Cloudinary CDN',
+      },
+      {
+        vi: 'Trang quản trị nội dung (CMS) hỗ trợ biên tập viên xuất bản tin bài và tài liệu phong trào dễ dàng',
+        en: 'Intuitive administrative CMS allowing editors to publish articles, guidelines, and event schedules',
+      },
+      {
+        vi: 'Bàn giao sản phẩm hoàn chỉnh, triển khai trên môi trường Production thực tế với độ sẵn sàng cao',
+        en: 'Successful commercial client handover, deployed to high-availability live production',
+      },
+    ],
+    lessonsLearned: {
+      vi: 'Áp dụng Server-Side Rendering (SSR) và Incremental Static Regeneration (ISR) trong Next.js giúp cổng thông tin đạt điểm SEO vượt trội, tốc độ tải trang tức thì ngay cả trong các đợt cao điểm sinh viên truy cập sự kiện.',
+      en: 'Leveraging Next.js SSR and ISR patterns delivered top-tier SEO indexing and instant page loads, ensuring zero downtime during high-traffic student event spikes.',
+    },
+    tags: ['Next.js', 'Mantine UI', 'MongoDB', 'Cloudinary', 'Client Project', 'Production'],
+    demoUrl: 'https://doanhoihutech.vn/',
+    featured: true,
+    metrics: 'Live Production Platform • Tens of Thousands Active Students',
+  },
+  {
+    id: 'proj-smartinventory',
     title: 'SmartInventoryManager (VioWare)',
     shortDescription: {
       vi: 'Hệ thống quản lý kho thông minh doanh nghiệp xây dựng trên .NET 10 & C#, kiểm soát chuỗi cung ứng đa kho với tính toàn vẹn giao dịch ACID tuyệt đối.',
@@ -44,7 +86,7 @@ export const INITIAL_PROJECTS: Project[] = [
     metrics: '100% Atomic Ledger Transactions & Multi-Warehouse Sync',
   },
   {
-    id: 'proj-2',
+    id: 'proj-multiagents',
     title: 'Multi Agents Orchestrator',
     shortDescription: {
       vi: 'Nền tảng điều phối đa Agent tự hành tại local, phân phối tác vụ thông minh giữa các CLI coding hàng đầu với cơ chế kiểm thử an toàn.',
@@ -72,7 +114,7 @@ export const INITIAL_PROJECTS: Project[] = [
         en: 'Full Model Context Protocol (MCP) compliance and native VS Code Copilot Chat integration',
       },
       {
-        vi: 'Cơ chế Fail-Closed Security Boundary: Chặn đọc secret, bảo vệ an toàn tệp nhạy cảm và dữ liệu cá nhân',
+        vi: 'Cơ chế Fail-Closed Security Boundary: Chặn rò rỉ secret, bảo vệ an toàn tệp nhạy cảm và dữ liệu cá nhân',
         en: 'Fail-closed security invariants: Zero secret leaks, sandbox boundary protection, and uncommitted code safety',
       },
     ],
@@ -86,7 +128,7 @@ export const INITIAL_PROJECTS: Project[] = [
     metrics: 'Zero Workspace Collisions & Deterministic CI Gates',
   },
   {
-    id: 'proj-3',
+    id: 'proj-portfolio',
     title: 'NguyenKhangPortfolio',
     shortDescription: {
       vi: 'Web Portfolio kiến trúc chuẩn mực với React 19, TypeScript, Zod validation, i18n Song ngữ và Dark/Light mode Glassmorphism.',

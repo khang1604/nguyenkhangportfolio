@@ -5,6 +5,7 @@ import {
   faExternalLinkAlt,
   faCode,
   faLayerGroup,
+  faLock,
 } from '../../components/icons';
 import type { Project } from '../../core/validation/schemas';
 import { useLanguage } from '../../core/i18n/LanguageContext';
@@ -24,15 +25,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenDetails
           <FontAwesomeIcon icon={faCode} />
         </div>
         <div className="project-links">
-          {project.githubUrl && (
+          {project.githubUrl ? (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub Repository"
+              title="GitHub Repository"
             >
               <FontAwesomeIcon icon={faGithub} />
             </a>
+          ) : (
+            <span
+              className="private-repo-badge"
+              title={t.projects.privateRepo}
+              aria-label={t.projects.privateRepo}
+            >
+              <FontAwesomeIcon icon={faLock} />
+            </span>
           )}
           {project.demoUrl && (
             <a
@@ -40,6 +50,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenDetails
               target="_blank"
               rel="noreferrer"
               aria-label="Live Demo"
+              title={t.projects.liveDemo}
             >
               <FontAwesomeIcon icon={faExternalLinkAlt} />
             </a>

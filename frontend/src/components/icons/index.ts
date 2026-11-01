@@ -18,6 +18,7 @@ import {
   faCheck,
   faLightbulb,
   faRocket,
+  faLock,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -47,6 +48,7 @@ export {
   faCheck,
   faLightbulb,
   faRocket,
+  faLock,
   faGithub,
   faLinkedin,
   faReact,
