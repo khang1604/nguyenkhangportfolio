@@ -70,3 +70,4 @@ export const BackgroundEffect: React.FC = () => {
     </div>
   );
 };
+
