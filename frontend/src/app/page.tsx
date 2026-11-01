@@ -239,7 +239,10 @@ function PortfolioAppContent() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col font-sans transition-colors duration-300">
+    <div
+      className="relative min-h-screen flex flex-col font-sans transition-colors duration-300"
+      style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}
+    >
       {/* Background Tech Grid */}
       <div className="fixed inset-0 oled-grid-pattern pointer-events-none z-0" />
 
@@ -264,25 +267,29 @@ function PortfolioAppContent() {
           <nav className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium">
             <a
               href="#about"
-              className="text-zinc-400 hover:text-cyan-400 transition-colors"
+              className="hover:text-cyan-500 transition-colors"
+              style={{ color: 'var(--muted)' }}
             >
               {t.nav.about}
             </a>
             <a
               href="#skills"
-              className="text-zinc-400 hover:text-cyan-400 transition-colors hidden sm:inline-block"
+              className="hover:text-cyan-500 transition-colors hidden sm:inline-block"
+              style={{ color: 'var(--muted)' }}
             >
               {t.nav.skills}
             </a>
             <a
               href="#projects"
-              className="text-zinc-400 hover:text-cyan-400 transition-colors"
+              className="hover:text-cyan-500 transition-colors"
+              style={{ color: 'var(--muted)' }}
             >
               {t.nav.projects}
             </a>
             <a
               href="#contact"
-              className="text-zinc-400 hover:text-cyan-400 transition-colors hidden sm:inline-block"
+              className="hover:text-cyan-500 transition-colors hidden sm:inline-block"
+              style={{ color: 'var(--muted)' }}
             >
               {t.nav.contact}
             </a>
@@ -305,7 +312,8 @@ function PortfolioAppContent() {
               onClick={toggleTheme}
               title={theme === 'dark' ? t.nav.themeLight : t.nav.themeDark}
               aria-label="Toggle theme"
-              className="p-1.5 rounded-lg border theme-card text-zinc-400 hover:text-cyan-400 transition-all cursor-pointer"
+              className="p-1.5 rounded-lg border theme-card hover:text-cyan-400 transition-all cursor-pointer"
+              style={{ color: 'var(--muted)' }}
             >
               {theme === 'dark' ? (
                 <Sun className="w-4 h-4 text-amber-400" />
@@ -617,8 +625,12 @@ function PortfolioAppContent() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs px-2 py-0.5 rounded border text-zinc-400"
-                          style={{ backgroundColor: 'var(--card-hover)', borderColor: 'var(--border)' }}
+                          className="text-xs px-2 py-0.5 rounded border"
+                          style={{
+                            backgroundColor: 'var(--card-hover)',
+                            borderColor: 'var(--border)',
+                            color: 'var(--muted)',
+                          }}
                         >
                           {tag}
                         </span>
@@ -690,8 +702,12 @@ function PortfolioAppContent() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={t.contact.namePlaceholder}
-                    className="w-full px-3.5 py-2.5 rounded-lg border text-sm placeholder-zinc-500 focus:outline-none transition-colors"
-                    style={{ backgroundColor: 'var(--card-hover)', borderColor: 'var(--border)' }}
+                    className="w-full px-3.5 py-2.5 rounded-lg border text-sm placeholder:opacity-50 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: 'var(--card-hover)',
+                      borderColor: 'var(--border)',
+                      color: 'var(--foreground)',
+                    }}
                   />
                 </div>
 
@@ -706,8 +722,12 @@ function PortfolioAppContent() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder={t.contact.emailPlaceholder}
-                    className="w-full px-3.5 py-2.5 rounded-lg border text-sm placeholder-zinc-500 focus:outline-none transition-colors"
-                    style={{ backgroundColor: 'var(--card-hover)', borderColor: 'var(--border)' }}
+                    className="w-full px-3.5 py-2.5 rounded-lg border text-sm placeholder:opacity-50 focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: 'var(--card-hover)',
+                      borderColor: 'var(--border)',
+                      color: 'var(--foreground)',
+                    }}
                   />
                 </div>
               </div>
@@ -723,8 +743,12 @@ function PortfolioAppContent() {
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   placeholder={t.contact.subjectPlaceholder}
-                  className="w-full px-3.5 py-2.5 rounded-lg border text-sm placeholder-zinc-500 focus:outline-none transition-colors"
-                  style={{ backgroundColor: 'var(--card-hover)', borderColor: 'var(--border)' }}
+                  className="w-full px-3.5 py-2.5 rounded-lg border text-sm placeholder:opacity-50 focus:outline-none transition-colors"
+                  style={{
+                    backgroundColor: 'var(--card-hover)',
+                    borderColor: 'var(--border)',
+                    color: 'var(--foreground)',
+                  }}
                 />
               </div>
 
@@ -739,8 +763,12 @@ function PortfolioAppContent() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder={t.contact.messagePlaceholder}
-                  className="w-full px-3.5 py-2.5 rounded-lg border text-sm placeholder-zinc-500 focus:outline-none transition-colors resize-none"
-                  style={{ backgroundColor: 'var(--card-hover)', borderColor: 'var(--border)' }}
+                  className="w-full px-3.5 py-2.5 rounded-lg border text-sm placeholder:opacity-50 focus:outline-none transition-colors resize-none"
+                  style={{
+                    backgroundColor: 'var(--card-hover)',
+                    borderColor: 'var(--border)',
+                    color: 'var(--foreground)',
+                  }}
                 />
               </div>
 
@@ -790,7 +818,7 @@ function PortfolioAppContent() {
       {/* TECHNICAL DEEP DIVE MODAL */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in-up"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in-up"
           onClick={() => setSelectedProject(null)}
           role="dialog"
           aria-modal="true"
@@ -798,6 +826,7 @@ function PortfolioAppContent() {
           <div
             className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl border theme-card p-6 sm:p-8 space-y-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
+            style={{ backgroundColor: 'var(--card)', borderColor: 'var(--border)' }}
           >
             <div className="flex items-start justify-between gap-4 border-b pb-4" style={{ borderColor: 'var(--border)' }}>
               <div>
@@ -814,7 +843,8 @@ function PortfolioAppContent() {
               <button
                 type="button"
                 onClick={() => setSelectedProject(null)}
-                className="w-8 h-8 rounded-full border theme-card flex items-center justify-center text-zinc-400 hover:text-cyan-400 transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full border theme-card flex items-center justify-center hover:text-cyan-400 transition-colors cursor-pointer"
+                style={{ color: 'var(--muted)' }}
                 aria-label="Đóng modal"
               >
                 <X className="w-4 h-4" />

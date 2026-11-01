@@ -34,8 +34,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" className={`dark ${jetbrainsMono.variable} ${ibmPlexSans.variable}`}>
-      <body className="bg-black text-slate-100 min-h-screen selection:bg-cyan-500/20 selection:text-cyan-300">
+    <html lang="vi" suppressHydrationWarning className={`${jetbrainsMono.variable} ${ibmPlexSans.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var s = localStorage.getItem('nguyenkhang_portfolio_theme');
+                var p = window.matchMedia('(prefers-color-scheme: light)').matches;
+                var t = (s === 'light' || s === 'dark') ? s : (p ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', t);
+                document.documentElement.classList.add(t);
+                document.documentElement.style.colorScheme = t;
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-screen selection:bg-cyan-500/20 selection:text-cyan-300">
         {children}
       </body>
     </html>

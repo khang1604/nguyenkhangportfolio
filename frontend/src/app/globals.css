@@ -2,7 +2,8 @@
 
 @layer base {
   :root,
-  [data-theme='dark'] {
+  [data-theme='dark'],
+  .dark {
     --background: #000000;
     --card: #090a0f;
     --card-hover: #12141d;
@@ -20,7 +21,8 @@
     --grid-opacity: 0.35;
   }
 
-  [data-theme='light'] {
+  [data-theme='light'],
+  .light {
     --background: #f8fafc;
     --card: #ffffff;
     --card-hover: #f1f5f9;

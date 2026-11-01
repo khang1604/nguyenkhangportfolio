@@ -13,28 +13,34 @@ const THEME_STORAGE_KEY = 'nguyenkhang_portfolio_theme';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const applyThemeToDOM = (t: Theme) => {
+  if (typeof document === 'undefined') return;
+  document.documentElement.setAttribute('data-theme', t);
+  document.documentElement.classList.remove('dark', 'light');
+  document.documentElement.classList.add(t);
+  document.documentElement.style.colorScheme = t;
+};
+
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const saved = localStorage.getItem(THEME_STORAGE_KEY);
     if (saved === 'light' || saved === 'dark') {
       setTheme(saved);
-      document.documentElement.setAttribute('data-theme', saved);
+      applyThemeToDOM(saved);
     } else {
       const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
       const initial = prefersLight ? 'light' : 'dark';
       setTheme(initial);
-      document.documentElement.setAttribute('data-theme', initial);
+      applyThemeToDOM(initial);
     }
   }, []);
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
-    document.documentElement.setAttribute('data-theme', next);
+    applyThemeToDOM(next);
     localStorage.setItem(THEME_STORAGE_KEY, next);
   };
 
