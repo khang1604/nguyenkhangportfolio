@@ -523,7 +523,7 @@ function PortfolioAppContent() {
             <a
               href="https://github.com/khang1604"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border theme-card text-sm hover:border-cyan-500/50 transition-all"
             >
               <GithubIcon className="w-4 h-4" />
@@ -686,7 +686,7 @@ function PortfolioAppContent() {
                           <a
                             href={project.githubUrl}
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             title={t.projects.sourceCode}
                             className="w-8 h-8 rounded-full border theme-card flex items-center justify-center hover:text-cyan-400 transition-colors"
                           >
@@ -697,7 +697,7 @@ function PortfolioAppContent() {
                           <a
                             href={project.demoUrl}
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             title={t.projects.liveDemo}
                             className="w-8 h-8 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 hover:bg-cyan-500/20 transition-colors"
                           >
@@ -899,7 +899,7 @@ function PortfolioAppContent() {
             <a
               href="https://github.com/khang1604"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"
             >
               <GithubIcon className="w-3.5 h-3.5" />
@@ -991,7 +991,7 @@ function PortfolioAppContent() {
                 <a
                   href={selectedProject.githubUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border theme-card text-sm font-medium hover:text-cyan-400 transition-colors"
                 >
                   <GithubIcon className="w-4 h-4" />
@@ -1002,7 +1002,7 @@ function PortfolioAppContent() {
                 <a
                   href={selectedProject.demoUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-cyan-500 text-black font-semibold text-sm hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20"
                 >
                   <ExternalLink className="w-4 h-4" />
