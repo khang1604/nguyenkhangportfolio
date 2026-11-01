@@ -26,6 +26,13 @@ export const metadata: Metadata = {
     'Modern Developer Portfolio of Nguyen Khang featuring scalable architectures, full-stack applications, and autonomous AI systems.',
   keywords: ['Nguyen Khang', 'Portfolio', 'Full Stack', 'Next.js 15', 'React', '.NET 10', 'AI Agents'],
   authors: [{ name: 'Nguyen Khang' }],
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/icon.svg',
+  },
 };
 
 export default function RootLayout({

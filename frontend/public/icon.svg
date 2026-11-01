@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="100%" stop-color="#020408" />
+    </linearGradient>
+
+    <!-- Border Glow -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.5" />
+    </linearGradient>
+
+    <!-- K Letter Primary Gradient (Cyan to Electric Blue) -->
+    <linearGradient id="stemGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="50%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+
+    <!-- Upper Arm Gradient (Cyan to Indigo) -->
+    <linearGradient id="armGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#60A5FA" />
+    </linearGradient>
+
+    <!-- Lower Leg Gradient (Blue to Purple) -->
+    <linearGradient id="legGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+
+    <!-- Core Ambient Glow -->
+    <radialGradient id="glowEffect" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Squircle Container -->
+  <rect x="16" y="16" width="480" height="480" rx="120" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="8" />
+
+  <!-- Ambient Light Reflection -->
+  <circle cx="256" cy="256" r="180" fill="url(#glowEffect)" />
+
+  <!-- Modern Geometric Letter K -->
+  <g>
+    <!-- Vertical Stem -->
+    <rect x="136" y="120" width="56" height="272" rx="28" fill="url(#stemGrad)" />
+
+    <!-- Upper Diagonal Arm -->
+    <path d="M 270 240 L 348 142 C 358 130 376 130 386 140 C 396 150 396 168 384 180 L 292 278 Z" fill="url(#armGrad)" />
+
+    <!-- Lower Diagonal Leg -->
+    <path d="M 230 250 L 350 372 C 362 384 362 402 350 412 C 338 422 320 422 308 410 L 198 296 Z" fill="url(#legGrad)" />
+
+    <!-- Quantum Tech Dot / Center Node -->
+    <circle cx="240" cy="256" r="14" fill="#22D3EE" />
+  </g>
+</svg>

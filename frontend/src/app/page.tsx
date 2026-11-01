@@ -24,7 +24,7 @@ import {
   Globe,
 } from 'lucide-react';
 import { z } from 'zod';
-import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
+import { GithubIcon } from '@/components/icons/BrandIcons';
 import { ThemeProvider, useTheme } from '@/core/theme/ThemeContext';
 import { LanguageProvider, useLanguage } from '@/core/i18n/LanguageContext';
 import { RevealOnScroll } from '@/components/common/RevealOnScroll';
@@ -520,26 +520,15 @@ function PortfolioAppContent() {
               <Send className="w-4 h-4" />
               <span>{t.hero.contactBtn}</span>
             </a>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/khang1604"
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border theme-card text-sm hover:border-cyan-500/50 transition-all"
-              >
-                <GithubIcon className="w-4 h-4" />
-                <span>GitHub</span>
-              </a>
-              <a
-                href="https://linkedin.com/in/nguyenkhang"
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border theme-card text-sm hover:border-cyan-500/50 transition-all"
-              >
-                <LinkedinIcon className="w-4 h-4" />
-                <span>LinkedIn</span>
-              </a>
-            </div>
+            <a
+              href="https://github.com/khang1604"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border theme-card text-sm hover:border-cyan-500/50 transition-all"
+            >
+              <GithubIcon className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
           </div>
         </section>
 
@@ -911,20 +900,10 @@ function PortfolioAppContent() {
               href="https://github.com/khang1604"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-cyan-400 transition-colors"
+              className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"
             >
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/nguyenkhang"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-cyan-400 transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a href="mailto:contact@example.com" className="hover:text-cyan-400 transition-colors">
-              contact@example.com
+              <GithubIcon className="w-3.5 h-3.5" />
+              <span>GitHub</span>
             </a>
           </div>
         </div>
