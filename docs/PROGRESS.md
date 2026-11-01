@@ -1,26 +1,19 @@
 # Project Progress & Handoff Log: NguyenKhangPortfolio
 
-### Session Status [2026-11-01 20:14]
-- **Task:** Redesign Portfolio Background with Dark OLED & Aurora Ambient UI | **State:** Completed (100%)
-- **Tech Stack:** Next.js 15.5+, React 19, Tailwind CSS v4, Lucide Icons, UI/UX Pro Max Design Intelligence
+### Session Status [2026-11-01 20:19]
+- **Task:** Resolve Dev Server Cache Conflict & Non-Destructive Pre-Commit Diagnostics | **State:** Completed (100%)
+- **Tech Stack:** Next.js 15.5+, React 19, TypeScript, Tailwind CSS v4, Lucide Icons
 - **Target Location:** `C:\Project\NguyenKhangPortfolio`
 
 #### Completed Deliverables:
-1. **Background Architecture Redesign (`BackgroundEffect.tsx`):**
-   - Replaced flat single-layer grid with a multi-layered, GPU-accelerated background system based on UI/UX Pro Max `Dark Mode (OLED)` and `Aurora UI` specifications.
-   - **Layer 1: Aurora Ambient Mesh:**
-     - Top Hero Core: Radial Cyan & Electric Blue bloom (`--aurora-1`, `--aurora-2`) with smooth 14s breathing drift (`animate-aurora-drift`).
-     - Mid-Right Projects: Radial Indigo & Purple bloom (`--aurora-3`) with smooth 18s breathing pulse (`animate-aurora-pulse`).
-     - Bottom-Left Horizon: Soft Emerald accent with 16s reverse drift (`animate-aurora-drift-reverse`).
-   - **Layer 2: Precision Engineering Grid with Radial Dissolve:**
-     - 36px precision tech grid masked with `radial-gradient(ellipse 90% 70% at 50% 20%, black 35%, transparent 85%)` to keep content readable and eliminate edge harshness.
-   - **Layer 3: Top Horizon Gradient Beam:**
-     - Subtle 1px cyan/blue gradient line along the top horizon for a modern developer aesthetic.
-2. **Accessibility & Cross-Theme Integration:**
-   - Both Dark OLED Mode and Clean Slate Light Mode feature tuned opacity and contrast parameters.
-   - Fully respects `prefers-reduced-motion` with zero CPU overhead.
-3. **Pre-Commit Diagnostics & Verification:**
-   - Executed `npm run diagnose`: Passed 100% (0 errors, 0 warnings, static prerendered).
+1. **Dev Server 404 Root Cause Analysis:**
+   - **Root Cause:** When the pre-commit hook previously executed `next build`, it regenerated the `.next/` directory with production hashes while the developer's live `next dev` server was actively running on `localhost:3000`. The running dev server's in-memory router attempted to serve development chunk URLs (`layout.css?v=...`, `app-pages-internals.js`), which resulted in 404 responses because `.next/` had been rewritten for production.
+   - **Permanent Architectural Fix:**
+     - Separated pre-commit diagnostics from production building: updated `.git/hooks/pre-commit` to execute `npm run typecheck` (`tsc --noEmit`) and `npm run lint`.
+     - Preserves full static analysis and 100% type verification without touching or wiping the active development `.next` cache.
+     - Added `npm run build-check` for standalone production build verification when the dev server is offline.
+2. **Standardized Local Project Rules (`AGENTS.md`):**
+   - Documented the non-destructive pre-commit diagnostic standard.
 
 #### Next Actions:
-1. Commit and push changes to GitHub `main` branch.
+1. Restart the local dev server (`npm run dev`) to reload fresh dev assets.

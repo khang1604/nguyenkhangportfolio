@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "oxlint",
     "typecheck": "tsc --noEmit",
-    "diagnose": "tsc --noEmit && next build"
+    "diagnose": "tsc --noEmit",
+    "build-check": "tsc --noEmit && next build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",

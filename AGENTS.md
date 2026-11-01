@@ -39,17 +39,23 @@ frontend/src/
 > Before executing ANY `git commit` or declaring any code modification complete, the developer or agent **MUST** run automated diagnostic checks. Committing untested or broken code is **STRICTLY PROHIBITED**.
 
 ### Diagnostic Commands (Run inside `frontend/`):
-1. **Full Diagnostics (TypeCheck + Production Build):**
+1. **Type Safety Diagnostics (Pre-Commit Standard):**
    ```bash
-   cd frontend && npm run diagnose
+   cd frontend && npm run typecheck
    ```
-   *Executes `tsc --noEmit && next build` to verify 100% type safety and static page prerendering.*
+   *Executes `tsc --noEmit` to verify 100% type safety and syntax without corrupting the local development server's `.next` cache.*
 
 2. **Linting Check:**
    ```bash
    cd frontend && npm run lint
    ```
    *Executes code linting via `oxlint`.*
+
+3. **Full Production Build Check (Deployment / CI Verification):**
+   ```bash
+   cd frontend && npm run build-check
+   ```
+   *Executes `tsc --noEmit && next build` for deep production verification.*
 
 ### Invariant Rules:
 1. **Zero Errors Allowed:** If `npm run diagnose` or `tsc --noEmit` returns a non-zero exit code or any compilation/type error, the commit is **IMMEDIATELY BLOCKED**.
