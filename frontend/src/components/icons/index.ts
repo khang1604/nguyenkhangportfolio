@@ -10,6 +10,14 @@ import {
   faGraduationCap,
   faTerminal,
   faCheckCircle,
+  faSun,
+  faMoon,
+  faGlobe,
+  faTimes,
+  faLayerGroup,
+  faCheck,
+  faLightbulb,
+  faRocket,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -31,10 +39,17 @@ export {
   faGraduationCap,
   faTerminal,
   faCheckCircle,
+  faSun,
+  faMoon,
+  faGlobe,
+  faTimes,
+  faLayerGroup,
+  faCheck,
+  faLightbulb,
+  faRocket,
   faGithub,
   faLinkedin,
   faReact,
   faJs,
   faPython,
 };
-

@@ -12,25 +12,34 @@ export const EnvSchema = z.object({
   VITE_LOG_LEVEL: z.enum(['DEBUG', 'INFO', 'WARN', 'ERROR']).default('INFO'),
 });
 
+export const LocalizedTextSchema = z.object({
+  vi: z.string().min(1),
+  en: z.string().min(1),
+});
+
 export const AchievementSchema = z.object({
   id: z.string().min(1),
-  title: z.string().min(2),
+  title: LocalizedTextSchema,
   organization: z.string().min(2),
   date: z.string(),
-  description: z.string().min(5),
+  description: LocalizedTextSchema,
   category: z.enum(['AWARDS', 'CERTIFICATIONS', 'COMPETITIONS', 'COMMUNITY']),
-  badge: z.string().optional(),
+  badge: LocalizedTextSchema.optional(),
   link: z.string().url().optional(),
 });
 
 export const ProjectSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(2),
-  description: z.string().min(10),
+  shortDescription: LocalizedTextSchema,
+  architectureOverview: LocalizedTextSchema,
+  keyFeatures: z.array(LocalizedTextSchema),
+  lessonsLearned: LocalizedTextSchema,
   tags: z.array(z.string()).min(1),
   githubUrl: z.string().url().optional(),
   demoUrl: z.string().url().optional(),
   featured: z.boolean().default(false),
+  metrics: z.string().optional(),
 });
 
 export const ContactFormSchema = z.object({
@@ -40,8 +49,7 @@ export const ContactFormSchema = z.object({
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
-export type EnvConfig = z.infer<typeof EnvSchema>;
+export type LocalizedText = z.infer<typeof LocalizedTextSchema>;
 export type Achievement = z.infer<typeof AchievementSchema>;
 export type Project = z.infer<typeof ProjectSchema>;
 export type ContactFormInput = z.infer<typeof ContactFormSchema>;
-

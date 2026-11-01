@@ -3,8 +3,11 @@ import { FontAwesomeIcon, faEnvelope, faCheckCircle } from '../../components/ico
 import { ContactFormSchema, type ContactFormInput } from '../../core/validation/schemas';
 import { logger } from '../../core/logger/logger';
 import { createSuccessResponse, createErrorResponse } from '../../core/api/jsend';
+import { useLanguage } from '../../core/i18n/LanguageContext';
 
 export const ContactSection: React.FC = () => {
+  const { t } = useLanguage();
+
   const [formData, setFormData] = useState<ContactFormInput>({
     name: '',
     email: '',
@@ -23,7 +26,7 @@ export const ContactSection: React.FC = () => {
     const validation = ContactFormSchema.safeParse(formData);
 
     if (!validation.success) {
-      const issue = validation.error.issues[0]?.message || 'Please fill in all fields correctly';
+      const issue = validation.error.issues[0]?.message || 'Validation error';
       setErrorMessage(issue);
       const failResponse = createErrorResponse('VALIDATION_ERROR', issue, validation.error.issues);
       logger.warn('Contact form validation failure', failResponse);
@@ -32,22 +35,20 @@ export const ContactSection: React.FC = () => {
 
     const successResponse = createSuccessResponse(
       { submittedAt: new Date().toISOString() },
-      'Thank you! Your message has been received.'
+      t.contact.successMsg
     );
     logger.info('Contact form successfully validated', successResponse);
 
-    setStatusMessage('Thank you! Your message has been validated and recorded successfully.');
+    setStatusMessage(t.contact.successMsg);
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
     <section id="contact" className="section contact-section">
       <div className="section-header">
-        <span className="section-badge">Connect</span>
-        <h2 className="section-title">Get In Touch</h2>
-        <p className="section-subtitle">
-          Have an interesting project or want to collaborate? Feel free to drop a message.
-        </p>
+        <span className="section-badge">{t.contact.badge}</span>
+        <h2 className="section-title">{t.contact.title}</h2>
+        <p className="section-subtitle">{t.contact.subtitle}</p>
       </div>
 
       <div className="contact-container">
@@ -60,59 +61,58 @@ export const ContactSection: React.FC = () => {
           {errorMessage && <div className="alert alert-error">{errorMessage}</div>}
 
           <div className="form-group">
-            <label htmlFor="name">Your Name</label>
+            <label htmlFor="name">{t.contact.nameLabel}</label>
             <input
               id="name"
               type="text"
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              placeholder="e.g. Nguyen Van A"
+              placeholder={t.contact.namePlaceholder}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Your Email</label>
+            <label htmlFor="email">{t.contact.emailLabel}</label>
             <input
               id="email"
               type="email"
               required
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="e.g. your.email@example.com"
+              placeholder={t.contact.emailPlaceholder}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="subject">Subject</label>
+            <label htmlFor="subject">{t.contact.subjectLabel}</label>
             <input
               id="subject"
               type="text"
               required
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-              placeholder="e.g. Collaboration Opportunity"
+              placeholder={t.contact.subjectPlaceholder}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">{t.contact.messageLabel}</label>
             <textarea
               id="message"
               rows={4}
               required
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              placeholder="Share details about your idea or project..."
+              placeholder={t.contact.messagePlaceholder}
             />
           </div>
 
           <button type="submit" className="btn btn-primary submit-btn">
-            <FontAwesomeIcon icon={faEnvelope} /> Send Message
+            <FontAwesomeIcon icon={faEnvelope} /> {t.contact.sendBtn}
           </button>
         </form>
       </div>
     </section>
   );
 };
-

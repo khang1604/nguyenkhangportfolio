@@ -1,50 +1,70 @@
 import React from 'react';
-import { FontAwesomeIcon, faCode, faGraduationCap, faBriefcase, faGithub, faLinkedin, faEnvelope } from '../../components/icons';
+import {
+  FontAwesomeIcon,
+  faCode,
+  faBriefcase,
+  faRocket,
+  faGithub,
+  faLinkedin,
+  faEnvelope,
+} from '../../components/icons';
+import { useLanguage } from '../../core/i18n/LanguageContext';
 
 export const AboutSection: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="section hero-section">
       <div className="hero-content">
-        <span className="hero-badge">Welcome to my Portfolio</span>
+        <span className="hero-badge">{t.hero.welcome}</span>
         <h1 className="hero-title">
-          Hi, I am <span className="highlight-text">Nguyen Khang</span>
+          {t.hero.greeting} <span className="highlight-text">{t.hero.name}</span>
         </h1>
-        <p className="hero-subtitle">
-          Software Engineer & Technology Enthusiast passionate about building scalable web applications, modern architectures, and resilient AI systems.
-        </p>
+        <p className="hero-role">{t.hero.role}</p>
+        <p className="hero-subtitle">{t.hero.bio}</p>
 
         <div className="hero-highlights">
           <div className="highlight-item">
             <FontAwesomeIcon icon={faCode} className="icon-gold" />
             <div>
-              <strong>Frontend & Full-Stack</strong>
-              <p>React, TypeScript, Node.js & Clean Architecture</p>
+              <strong>{t.hero.highlight1Title}</strong>
+              <p>{t.hero.highlight1Desc}</p>
             </div>
           </div>
           <div className="highlight-item">
             <FontAwesomeIcon icon={faBriefcase} className="icon-blue" />
             <div>
-              <strong>Project Leadership</strong>
-              <p>Scalable engineering, robust API design & system resilience</p>
+              <strong>{t.hero.highlight2Title}</strong>
+              <p>{t.hero.highlight2Desc}</p>
             </div>
           </div>
           <div className="highlight-item">
-            <FontAwesomeIcon icon={faGraduationCap} className="icon-purple" />
+            <FontAwesomeIcon icon={faRocket} className="icon-purple" />
             <div>
-              <strong>Continuous Innovation</strong>
-              <p>Passionate about competitive programming & AI solutions</p>
+              <strong>{t.hero.highlight3Title}</strong>
+              <p>{t.hero.highlight3Desc}</p>
             </div>
           </div>
         </div>
 
         <div className="hero-actions">
           <a href="#contact" className="btn btn-primary">
-            <FontAwesomeIcon icon={faEnvelope} /> Get In Touch
+            <FontAwesomeIcon icon={faEnvelope} /> {t.hero.contactBtn}
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="btn btn-secondary">
+          <a
+            href="https://github.com/khang1604"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-secondary"
+          >
             <FontAwesomeIcon icon={faGithub} /> GitHub
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="btn btn-secondary">
+          <a
+            href="https://linkedin.com/in/nguyenkhang"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-secondary"
+          >
             <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
           </a>
         </div>
@@ -52,4 +72,3 @@ export const AboutSection: React.FC = () => {
     </section>
   );
 };
-
