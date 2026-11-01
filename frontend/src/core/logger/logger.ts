@@ -46,7 +46,11 @@ class StructuredLogger {
   private minLevel: LogLevel;
 
   constructor() {
-    const envLevel = (import.meta.env.VITE_LOG_LEVEL || 'INFO').toUpperCase();
+    const rawLevel =
+      typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_LOG_LEVEL
+        ? process.env.NEXT_PUBLIC_LOG_LEVEL
+        : 'INFO';
+    const envLevel = rawLevel.toUpperCase();
     this.minLevel = (['DEBUG', 'INFO', 'WARN', 'ERROR'].includes(envLevel)
       ? envLevel
       : 'INFO') as LogLevel;

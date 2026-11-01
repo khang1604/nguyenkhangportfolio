@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #000000;
+    --card: #090a0f;
+    --card-hover: #11141e;
+    --border: #1a1f2c;
+    --border-hover: #2d3748;
+    --foreground: #f8fafc;
+    --muted: #94a3b8;
+    --muted-dark: #64748b;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --accent-emerald: #10b981;
+    --accent-purple: #8b5cf6;
+    --accent-gold: #f59e0b;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Code and Headings Font */
+  .font-mono-tech {
+    font-family: var(--font-mono), monospace;
+  }
+}
+
+/* OLED Contrast & Focus States (WCAG 2.1 Compliant) */
+*:focus-visible {
+  outline: 2px solid var(--accent-cyan) !important;
+  outline-offset: 2px;
+}
+
+/* Clickable elements cursor */
+button, a, [role="button"] {
+  cursor: pointer;
+}
+
+/* Subtle Sci-Fi Grid Background */
+.oled-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glow Utilities */
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.15);
+}
+
+.glow-blue {
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

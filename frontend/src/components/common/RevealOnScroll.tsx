@@ -30,3 +30,4 @@ export const RevealOnScroll: React.FC<RevealOnScrollProps> = ({
     </div>
   );
 };
+
