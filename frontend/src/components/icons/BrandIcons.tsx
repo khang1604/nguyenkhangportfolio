@@ -36,3 +36,4 @@ export const LinkedinIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({ classNam
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
+

@@ -3,43 +3,52 @@ export type Language = 'vi' | 'en';
 export interface TranslationDictionary {
   nav: {
     about: string;
+    skills: string;
     projects: string;
     contact: string;
+    themeLight: string;
+    themeDark: string;
+    langSwitch: string;
   };
   hero: {
-    welcome: string;
+    status: string;
     greeting: string;
     name: string;
     role: string;
     bio: string;
-    highlight1Title: string;
-    highlight1Desc: string;
-    highlight2Title: string;
-    highlight2Desc: string;
-    highlight3Title: string;
-    highlight3Desc: string;
-    contactBtn: string;
+    metric1Val: string;
+    metric1Label: string;
+    metric2Val: string;
+    metric2Label: string;
+    metric3Val: string;
+    metric3Label: string;
+    viewProjects: string;
   };
-  achievements: {
+  about: {
     badge: string;
     title: string;
-    subtitle: string;
-    categories: {
-      AWARDS: string;
-      CERTIFICATIONS: string;
-      COMPETITIONS: string;
-      COMMUNITY: string;
-    };
+    card1Title: string;
+    card1Desc: string;
+    card2Title: string;
+    card2Desc: string;
+    card3Title: string;
+    card3Desc: string;
+  };
+  skills: {
+    badge: string;
+    title: string;
+    frontend: string;
+    backend: string;
+    database: string;
+    architecture: string;
   };
   projects: {
     badge: string;
     title: string;
-    subtitle: string;
     viewDetails: string;
     modalTitle: string;
-    architecture: string;
-    keyFeatures: string;
-    learnings: string;
+    architectureTitle: string;
+    featuresTitle: string;
     close: string;
     liveDemo: string;
     sourceCode: string;
@@ -70,132 +79,149 @@ export const translations: Record<Language, TranslationDictionary> = {
   vi: {
     nav: {
       about: 'Giới Thiệu',
+      skills: 'Kỹ Năng',
       projects: 'Dự Án',
       contact: 'Liên Hệ',
+      themeLight: 'Giao diện Sáng',
+      themeDark: 'Giao diện Tối OLED',
+      langSwitch: 'Chuyển sang English',
     },
     hero: {
-      welcome: 'Chào mừng đến với Portfolio của tôi',
+      status: 'SẴN SÀNG CHO CÁC DỰ ÁN & VỊ TRÍ MỚI',
       greeting: 'Xin chào, tôi là',
       name: 'Nguyễn Khang',
-      role: 'Kỹ sư Full Stack / Web Developer',
-      bio: 'Lập trình viên đam mê kiến tạo các sản phẩm web quy mô lớn, kiến trúc bền vững, hiệu năng tối ưu và trải nghiệm người dùng tinh tế.',
-      highlight1Title: 'Frontend & Full-Stack Thực Chiến',
-      highlight1Desc: 'React, TypeScript, Node.js, Next.js & Thiết kế Clean Architecture',
-      highlight2Title: 'Năng Lực Thiết Kế Hệ Thống',
-      highlight2Desc: 'Kiến trúc API chuẩn hóa, tối ưu truy vấn cơ sở dữ liệu và bảo mật đa lớp',
-      highlight3Title: 'Không Ngừng Đổi Mới & Sáng Tạo',
-      highlight3Desc: 'Tích hợp AI Agents, tự động hóa quy trình và chinh phục các thử thách kỹ thuật',
-      contactBtn: 'Kết Nối Ngay',
+      role: 'Full Stack Engineer & System Architect',
+      bio: 'Đam mê xây dựng các nền tảng web quy mô lớn, kiến trúc hướng sự kiện, hệ thống quản lý kho ACID bền vững và giải pháp điều phối AI Agent tự hành.',
+      metric1Val: '4+ Dự Án',
+      metric1Label: 'Triển khai thực tế',
+      metric2Val: '100% ACID',
+      metric2Label: 'Toàn vẹn số liệu kho',
+      metric3Val: 'Next.js 15',
+      metric3Label: 'SSR & Clean Architecture',
+      viewProjects: 'Xem Các Dự Án',
     },
-    achievements: {
-      badge: 'Cột Mốc Tiêu Biểu',
-      title: 'Thành Tựu & Vinh Danh',
-      subtitle: 'Các giải thưởng cuộc thi, chứng chỉ công nghệ quốc tế và dấu ấn kỹ thuật nổi bật.',
-      categories: {
-        AWARDS: 'GIẢI THƯỞNG',
-        CERTIFICATIONS: 'CHỨNG CHỈ',
-        COMPETITIONS: 'THI ĐẤU',
-        COMMUNITY: 'ĐÓNG GÓP',
-      },
+    about: {
+      badge: 'Về Bản Thân',
+      title: 'Tư Duy Kỹ Thuật & Triết Lý Xây Dựng',
+      card1Title: 'Backend & Toàn Vẹn Dữ Liệu',
+      card1Desc: 'Đóng gói các tác vụ giao dịch phức tạp (nhập xuất kho, chuyển chi nhánh) trong một Database Transaction nguyên tử duy nhất. Cam kết zero balance discrepancies.',
+      card2Title: 'Full-Stack & Tối Ưu Tốc Độ',
+      card2Desc: 'Thành thạo Next.js 15, React 19, TypeScript và Mantine UI. Tận dụng SSR, ISR và CDN Cloudinary để đạt tốc độ tải trang dưới 1 giây và điểm SEO tuyệt đối.',
+      card3Title: 'AI Agents & Bảo Mật AppSec',
+      card3Desc: 'Nghiên cứu và hiện thực hóa các giải pháp AI tự hành theo giao thức Model Context Protocol (MCP), thực thi kiểm thử an toàn trong sandbox Git worktrees.',
+    },
+    skills: {
+      badge: 'Năng Lực Công Nghệ',
+      title: 'Tech Stack & Hệ Thống Kỹ Năng',
+      frontend: 'Frontend',
+      backend: 'Backend & API',
+      database: 'Database & Cloud',
+      architecture: 'Kiến Trúc & AI',
     },
     projects: {
-      badge: 'Sản Phẩm',
-      title: 'Dự Án Tiêu Biểu',
-      subtitle: 'Các giải pháp thực tế giải quyết bài toán nghiệp vụ với mã nguồn chuẩn mực.',
-      viewDetails: 'Xem Chi Tiết & Kiến Trúc',
+      badge: 'Dự Án Tiêu Biểu',
+      title: 'Sản Phẩm Đã Xây Dựng & Triển Khai',
+      viewDetails: 'Xem Kiến Trúc & Giải Pháp',
       modalTitle: 'Chi Tiết Kỹ Thuật Dự Án',
-      architecture: 'Kiến Trúc & Giải Pháp Kỹ Thuật',
-      keyFeatures: 'Tính Năng Cốt Lõi',
-      learnings: 'Bài Học & Tối Ưu Rút Ra',
+      architectureTitle: 'Kiến Trúc Kỹ Thuật & Giải Pháp',
+      featuresTitle: 'Điểm Nổi Bật Cốt Lõi',
       close: 'Đóng',
       liveDemo: 'Bản Demo Trực Tuyến',
-      sourceCode: 'Mã Nguồn GitHub',
-      privateRepo: 'Mã nguồn nội bộ khách hàng',
-      clientProject: 'Dự Án Khách Hàng',
+      sourceCode: 'Mã Nguồn',
+      privateRepo: 'Mã nguồn riêng tư thuộc sở hữu khách hàng',
+      clientProject: 'Dự Án Thương Mại',
     },
     contact: {
-      badge: 'Kết Nối',
-      title: 'Liên Hệ Với Tôi',
-      subtitle: 'Bạn có dự án thú vị hoặc cơ hội hợp tác nghề nghiệp? Hãy để lại tin nhắn nhé!',
+      badge: 'Gửi Tin Nhắn',
+      title: 'Kết Nối & Hợp Tác',
+      subtitle: 'Bạn có bài toán kỹ thuật cần giải quyết hoặc cơ hội hợp tác nghề nghiệp? Hãy để lại thông tin nhé.',
       nameLabel: 'Họ và Tên',
       namePlaceholder: 'Ví dụ: Nguyễn Văn A',
-      emailLabel: 'Địa Chỉ Email',
-      emailPlaceholder: 'Ví dụ: email.cua.ban@example.com',
-      subjectLabel: 'Tiêu Đề Tin Nhắn',
-      subjectPlaceholder: 'Ví dụ: Thảo luận về cơ hội việc làm',
-      messageLabel: 'Nội Dung',
-      messagePlaceholder: 'Chia sẻ chi tiết về ý tưởng hoặc dự án của bạn...',
-      sendBtn: 'Gửi Tin Nhắn',
+      emailLabel: 'Email',
+      emailPlaceholder: 'email.cua.ban@example.com',
+      subjectLabel: 'Tiêu Đề',
+      subjectPlaceholder: 'Trao đổi cơ hội việc làm / Hợp tác dự án',
+      messageLabel: 'Nội Dung Tin Nhắn',
+      messagePlaceholder: 'Mô tả tóm tắt về ý tưởng hoặc yêu cầu của bạn...',
+      sendBtn: 'Gửi Tin Nhắn Ngay',
       successMsg: 'Cảm ơn bạn! Tin nhắn đã được gửi và ghi nhận thành công.',
     },
     footer: {
-      rights: 'Bản quyền thuộc về Nguyễn Khang. Đã đăng ký bản quyền.',
+      rights: 'Nguyễn Khang. Bản quyền đã được bảo lưu.',
     },
   },
   en: {
     nav: {
       about: 'About',
+      skills: 'Skills',
       projects: 'Projects',
       contact: 'Contact',
+      themeLight: 'Light Theme',
+      themeDark: 'OLED Dark Theme',
+      langSwitch: 'Switch to Vietnamese',
     },
     hero: {
-      welcome: 'Welcome to my Portfolio',
-      greeting: "Hi, I am",
+      status: 'AVAILABLE FOR ROLES & CONTRACTS',
+      greeting: "Hi, I'm",
       name: 'Nguyen Khang',
-      role: 'Full Stack Engineer / Web Developer',
-      bio: 'Software engineer passionate about engineering scalable web platforms, resilient architectures, optimal performance, and refined user experiences.',
-      highlight1Title: 'Hands-on Full-Stack Engineering',
-      highlight1Desc: 'React, TypeScript, Node.js, Next.js & Clean Architecture Design',
-      highlight2Title: 'System Design & Scalability',
-      highlight2Desc: 'Standardized API contracts, optimized database queries, and defense-in-depth security',
-      highlight3Title: 'Continuous Innovation & AI Integration',
-      highlight3Desc: 'AI Agent workflows, automated testing pipelines, and tackling complex tech challenges',
-      contactBtn: 'Get In Touch',
+      role: 'Full Stack Engineer & System Architect',
+      bio: 'Passionate about engineering large-scale web platforms, event-driven architectures, resilient ACID supply-chain ledgers, and autonomous AI Agent workflows.',
+      metric1Val: '4+ Projects',
+      metric1Label: 'Production Deployed',
+      metric2Val: '100% ACID',
+      metric2Label: 'Atomic Ledger Integrity',
+      metric3Val: 'Next.js 15',
+      metric3Label: 'SSR & Clean Architecture',
+      viewProjects: 'View Featured Work',
     },
-    achievements: {
-      badge: 'Key Milestones',
-      title: 'Key Achievements & Honors',
-      subtitle: 'Notable competition awards, international certifications, and technical breakthroughs.',
-      categories: {
-        AWARDS: 'AWARDS',
-        CERTIFICATIONS: 'CERTIFICATIONS',
-        COMPETITIONS: 'COMPETITIONS',
-        COMMUNITY: 'COMMUNITY',
-      },
+    about: {
+      badge: 'About Me',
+      title: 'Engineering Mindset & Philosophy',
+      card1Title: 'Backend & Data Integrity',
+      card1Desc: 'Enforcing atomic database transactions for high-stakes inventory mutations across distributed warehouses. Guaranteeing zero balance drift.',
+      card2Title: 'Full-Stack & Sub-Second Latency',
+      card2Desc: 'Mastery in Next.js 15, React 19, TypeScript, and Mantine UI. Harnessing SSR, ISR, and Cloudinary CDN for sub-second responses and flawless SEO.',
+      card3Title: 'AI Agents & AppSec Boundaries',
+      card3Desc: 'Architecting autonomous multi-agent networks powered by Model Context Protocol (MCP), isolated Git worktree sandboxes, and fail-closed gates.',
+    },
+    skills: {
+      badge: 'Technical Capabilities',
+      title: 'Tech Stack & Core Competencies',
+      frontend: 'Frontend',
+      backend: 'Backend & APIs',
+      database: 'Database & Cloud',
+      architecture: 'Architecture & AI',
     },
     projects: {
-      badge: 'Portfolio',
-      title: 'Featured Projects',
-      subtitle: 'Real-world software solutions delivering robust business value and clean code.',
-      viewDetails: 'View Details & Architecture',
+      badge: 'Featured Work',
+      title: 'Real-World Production Platforms',
+      viewDetails: 'View Architecture & Blueprint',
       modalTitle: 'Project Technical Deep Dive',
-      architecture: 'System Architecture & Solutions',
-      keyFeatures: 'Core Capabilities',
-      learnings: 'Lessons Learned & Optimizations',
+      architectureTitle: 'Technical Architecture & Blueprint',
+      featuresTitle: 'Core Highlights & Outcomes',
       close: 'Close',
       liveDemo: 'Live Production Demo',
-      sourceCode: 'GitHub Source',
-      privateRepo: 'Client Private Repository',
-      clientProject: 'Client Handover',
+      sourceCode: 'Source Code',
+      privateRepo: 'Client Private Enterprise Repository',
+      clientProject: 'Commercial Project',
     },
     contact: {
-      badge: 'Connect',
-      title: 'Get In Touch',
-      subtitle: 'Have an exciting project, job opportunity, or collaboration in mind? Drop a message!',
+      badge: 'Get In Touch',
+      title: 'Collaborate & Connect',
+      subtitle: 'Have a complex engineering challenge, contract, or career role? Feel free to drop a message.',
       nameLabel: 'Full Name',
-      namePlaceholder: 'e.g., Jane Doe',
+      namePlaceholder: 'e.g., Alex Johnson',
       emailLabel: 'Email Address',
-      emailPlaceholder: 'e.g., your.email@example.com',
+      emailPlaceholder: 'alex.johnson@example.com',
       subjectLabel: 'Subject',
-      subjectPlaceholder: 'e.g., Full Stack Role Opportunity',
+      subjectPlaceholder: 'Full Stack Opportunity / Technical Consultation',
       messageLabel: 'Message',
       messagePlaceholder: 'Share the details of your vision or proposal...',
       sendBtn: 'Send Message',
-      successMsg: 'Thank you! Your message has been validated and received successfully.',
+      successMsg: 'Thank you! Your message has been received and recorded successfully.',
     },
     footer: {
       rights: 'Nguyen Khang. All rights reserved.',
     },
   },
 };
-

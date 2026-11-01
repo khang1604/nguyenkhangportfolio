@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { translations, type Language, type TranslationDictionary } from './translations';
 
@@ -13,26 +15,25 @@ const LANGUAGE_STORAGE_KEY = 'nguyenkhang_portfolio_lang';
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    if (saved === 'vi' || saved === 'en') {
-      return saved;
-    }
-    // Default to 'vi' as preferred primary local language, switchable anytime
-    return 'vi';
-  });
+  const [language, setLanguageState] = useState<Language>('vi');
 
   useEffect(() => {
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
-    document.documentElement.setAttribute('lang', language);
-  }, [language]);
+    const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (saved === 'vi' || saved === 'en') {
+      setLanguageState(saved);
+      document.documentElement.setAttribute('lang', saved);
+    }
+  }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+    document.documentElement.setAttribute('lang', lang);
   };
 
   const toggleLanguage = () => {
-    setLanguageState((prev) => (prev === 'vi' ? 'en' : 'vi'));
+    const next = language === 'vi' ? 'en' : 'vi';
+    setLanguage(next);
   };
 
   return (
@@ -56,4 +57,3 @@ export const useLanguage = (): LanguageContextType => {
   }
   return context;
 };
-
