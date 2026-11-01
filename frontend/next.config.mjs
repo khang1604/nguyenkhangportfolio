@@ -1,4 +1,17 @@
 /** @type {import('next').NextConfig} */
+const cspHeader = `
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  img-src 'self' data: blob: https:;
+  font-src 'self' data: https://fonts.gstatic.com;
+  connect-src 'self' https: wss: https://vitals.vercel-insights.com;
+  frame-ancestors 'none';
+  upgrade-insecure-requests;
+`
+  .replace(/\s{2,}/g, ' ')
+  .trim();
+
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false, // Prevents server fingerprinting
@@ -15,6 +28,10 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: cspHeader,
+          },
           {
             key: 'X-Frame-Options',
             value: 'DENY',

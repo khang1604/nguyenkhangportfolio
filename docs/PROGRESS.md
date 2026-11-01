@@ -1,22 +1,26 @@
 # Project Progress & Handoff Log: NguyenKhangPortfolio
 
-### Session Status [2026-11-01 20:43]
-- **Task:** Remove LinkedIn & Dummy Email, Design Cybernetic Gradient "K" Monogram Favicon | **State:** Completed (100%)
-- **Tech Stack:** Next.js 15.5+, React 19, Tailwind CSS v4, SVG Vector Design, Vercel Production
+### Session Status [2026-11-01 20:53]
+- **Task:** Configure Content-Security-Policy (CSP) for A+ SecurityHeaders Rating | **State:** Completed (100%)
+- **Tech Stack:** Next.js 15.5+, Content-Security-Policy, HTTP Security Headers, Vercel Edge
 - **Target Location:** `C:\Project\NguyenKhangPortfolio`
 
 #### Completed Deliverables:
-1. **Clean Contact Links:**
-   - Removed LinkedIn references from Hero CTAs and Footer.
-   - Removed placeholder email (`contact@example.com`) from Footer.
-   - Clean, focused action buttons: "Kết Nối Ngay" (Contact Form) and "GitHub".
-2. **Cybernetic Gradient "K" Browser Favicon:**
-   - Designed vector SVG monogram letter "K" (`frontend/src/app/icon.svg`, `frontend/public/icon.svg`, `frontend/public/favicon.svg`).
-   - Visual characteristics:
-     - Deep OLED `#090A0F` rounded squircle base with multi-stop border glow.
-     - Geometric letter "K" rendered with high-contrast Cyan (`#22D3EE` / `#06B6D4`), Electric Blue (`#3B82F6`), and Purple (`#A855F7`) gradients.
-     - Central quantum node accent for futuristic developer branding.
-     - Registered across Next.js 15 App Router metadata (`layout.tsx`).
+1. **CSP Configuration in `next.config.mjs`:**
+   - `default-src 'self'`: Restricts resource loading to same-origin by default.
+   - `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com`: Allows Next.js hydration and Vercel Analytics.
+   - `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`: Allows Tailwind CSS, CSS variables, and Google Fonts.
+   - `img-src 'self' data: blob: https:`: Allows local assets, data URIs, and HTTPS remote images.
+   - `font-src 'self' data: https://fonts.gstatic.com`: Allows static fonts and Google Fonts CDN.
+   - `connect-src 'self' https: wss: https://vitals.vercel-insights.com`: Allows API calls, WebSockets, and Vercel Speed Insights.
+   - `frame-ancestors 'none'`: Prevents embedding in iframes (anti-clickjacking).
+   - `upgrade-insecure-requests`: Enforces HTTPS upgrade across all requests.
+2. **Preserved Existing Security Headers:**
+   - `Strict-Transport-Security` (HSTS preload)
+   - `X-Frame-Options: DENY`
+   - `X-Content-Type-Options: nosniff`
+   - `Referrer-Policy: strict-origin-when-cross-origin`
+   - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
 
 #### Live Production URLs:
 - **Primary Domain:** [https://nguyenkhang-portfolio.vercel.app](https://nguyenkhang-portfolio.vercel.app)
