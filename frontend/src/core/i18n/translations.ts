@@ -3,7 +3,6 @@ export type Language = 'vi' | 'en';
 export interface TranslationDictionary {
   nav: {
     about: string;
-    achievements: string;
     projects: string;
     contact: string;
   };
@@ -71,7 +70,6 @@ export const translations: Record<Language, TranslationDictionary> = {
   vi: {
     nav: {
       about: 'Giới Thiệu',
-      achievements: 'Thành Tựu',
       projects: 'Dự Án',
       contact: 'Liên Hệ',
     },
@@ -137,7 +135,6 @@ export const translations: Record<Language, TranslationDictionary> = {
   en: {
     nav: {
       about: 'About',
-      achievements: 'Achievements',
       projects: 'Projects',
       contact: 'Contact',
     },

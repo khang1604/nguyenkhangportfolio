@@ -27,7 +27,6 @@ export const Navbar: React.FC<NavbarProps> = ({ title = 'Nguyen Khang' }) => {
 
         <nav className="navbar-links">
           <a href="#about">{t.nav.about}</a>
-          <a href="#achievements">{t.nav.achievements}</a>
           <a href="#projects">{t.nav.projects}</a>
           <a href="#contact" className="nav-contact-link">{t.nav.contact}</a>
 
