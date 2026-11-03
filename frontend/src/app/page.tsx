@@ -157,10 +157,6 @@ const PROJECTS: ProjectItem[] = [
         en: 'Broadcast-grade Master Fader and hardware-accelerated Stereo VU Meter with ballistic decay',
       },
       {
-        vi: 'Cơ chế an toàn sân khấu: Nút Panic Stop chống quẹt nhầm phím và lưu/nạp kịch bản show (Preset JSON)',
-        en: 'Stage fail-safe Panic Stop protection and full event preset serialization (.json)',
-      },
-      {
         vi: 'Đóng gói cài đặt đa nền tảng hoàn chỉnh: .deb, .AppImage (Linux) và .exe, .msi (Windows x64)',
         en: 'Multi-platform packaging: Native .deb & .AppImage for Ubuntu Linux, and .exe & .msi for Windows x64',
       },
