@@ -22,10 +22,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Nguyen Khang | Full Stack Engineer & System Architect',
+  title: 'Nguyễn Khang — Portfolio',
   description:
-    'Modern Developer Portfolio of Nguyen Khang featuring scalable architectures, full-stack applications, and autonomous AI systems.',
-  keywords: ['Nguyen Khang', 'Portfolio', 'Full Stack', 'Next.js 15', 'React', '.NET 10', 'AI Agents'],
+    'Trang giới thiệu các dự án ứng dụng web, phần mềm desktop và công cụ dòng lệnh của Nguyễn Khang.',
+  keywords: ['Nguyen Khang', 'Portfolio', 'Next.js', 'React', '.NET 10', 'Tauri', 'Rust'],
   authors: [{ name: 'Nguyen Khang' }],
   icons: {
     icon: [
