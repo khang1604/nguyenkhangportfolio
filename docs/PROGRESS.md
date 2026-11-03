@@ -1,19 +1,18 @@
 # Project Progress & Handoff Log: NguyenKhangPortfolio
 
-### Session Status [2026-11-03 12:57]
-- **Task:** Showcase PlayMusic Studio on Developer Portfolio | **State:** Completed (100%)
-- **Tech Stack:** Next.js 15.5+ App Router, Tauri v2, Rust, React 19, TypeScript
+### Session Status [2026-11-03 13:08]
+- **Task:** Refactor Portfolio Copywriting with Direct, Authentic Engineering Tone | **State:** Completed (100%)
+- **Tech Stack:** Next.js 15.5+ App Router, i18n Bilingual Translations, Copywriting Optimization
 - **Target Location:** `C:\Project\NguyenKhangPortfolio`
 
 #### Completed Deliverables:
-1. **Added PlayMusic Studio to Featured Projects:**
-   - Category: `DESKTOP APP`
-   - Metric: `Độ Trễ < 1ms • Đa Nền Tảng Linux & Windows` / `Latency < 1ms • Ubuntu Linux & Windows x64`
-   - Bilingual description, architecture deep-dive (Tauri v2 + Rust, 2D Canvas IEC 60268-10 VU Meter, RAM decoding, Polyphonic & Solo Exclusive modes).
-   - Linked to GitHub repo (`https://github.com/khang1604/playmusic`) and GitHub Releases v1.0.11 (`.deb`, `.AppImage`, `.exe`, `.msi`).
-2. **Updated Tech Stack Showcase:**
-   - Added `Tauri v2` to Frontend/Desktop tools and `Rust` to Backend skills.
-3. **Verified Code Quality & Pre-Commit Diagnostics:**
+1. **Refactored Hero & Introductory Texts (`translations.ts`):**
+   - Eliminated cliché openings ("đam mê kiến tạo", "chuẩn mực", "bền vững").
+   - Replaced with direct, assertive prose stating real engineering domains (high-traffic web, cross-platform desktop, sub-millisecond audio, strict ACID transactions).
+2. **Refactored Project Descriptions & Technical Architectures (`page.tsx`):**
+   - Streamlined descriptions across all 5 projects (DoanHoi, SmartInventoryManager, PlayMusic Studio, MultiAgents, Portfolio).
+   - Removed speculative/buzzword phrasing in favor of concrete real-world details (30,000+ students, sub-1ms RAM audio decoding, IEC 60268-10 VU Meter, closed-loop Git worktree sandboxing, dynamic nonce CSP A+ rating).
+3. **Verified Quality & Diagnostics:**
    - `npm run typecheck` passed with 0 errors.
    - `npm run lint` passed with 0 errors.
 

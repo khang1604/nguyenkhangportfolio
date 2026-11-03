@@ -67,33 +67,33 @@ const PROJECTS: ProjectItem[] = [
     subtitle: 'doanhoihutech.vn',
     category: 'CLIENT WORK',
     description: {
-      vi: 'Cổng thông tin & quản lý hoạt động chính thức của Đoàn Thanh niên - Hội Sinh viên Trường Đại học Công nghệ TP.HCM (HUTECH) phục vụ hàng chục ngàn sinh viên.',
-      en: 'Official web portal & activity management platform for the Youth Union and Student Association of HUTECH University, serving tens of thousands of students.',
+      vi: 'Cổng thông tin và quản lý hoạt động cho Đoàn - Hội HUTECH, xử lý lưu lượng truy cập của hơn 30.000 sinh viên trong các đợt cao điểm phong trào.',
+      en: 'Official web portal and activity management platform for HUTECH Youth Union, handling peak traffic from over 30,000 students during major university campaigns.',
     },
     architecture: {
-      vi: 'Nền tảng Full Stack xây dựng trên Next.js (SSR & ISR) kết hợp Mantine UI tối ưu hóa trải nghiệm responsive. Cơ sở dữ liệu NoSQL MongoDB quản lý linh hoạt hồ sơ sinh viên và tin tức phong trào. Tích hợp Cloudinary CDN nén và phân phối hình ảnh/media thời gian thực với độ trễ thấp.',
-      en: 'Full-stack platform built on Next.js (SSR & ISR) and Mantine UI delivering modern responsive experiences. Scalable MongoDB NoSQL database modeling complex student profiles, event feeds, and youth movement activities. Cloudinary API integration for automated image/document transformations over a high-speed global CDN.',
+      vi: 'Nền tảng sử dụng Next.js với cơ chế Server-Side Rendering và ISR để giảm thời gian phản hồi trang xuống dưới 1 giây. Dữ liệu hồ sơ sinh viên và tin tức được mô hình hóa linh hoạt trên MongoDB, còn toàn bộ ảnh hoạt động được xử lý nén và phân phối qua Cloudinary CDN.',
+      en: 'Built on Next.js with SSR and ISR to keep page load times under 1 second. Student profiles and campaign feeds are stored in MongoDB NoSQL, while media assets are compressed and distributed automatically via Cloudinary CDN.',
     },
     keyPoints: [
       {
-        vi: 'Xử lý lưu lượng truy cập lớn trong các đợt cao điểm sự kiện sinh viên với độ ổn định 99.9%',
-        en: 'Handles high traffic peaks during major university campaigns with 99.9% uptime',
+        vi: 'Xử lý ổn định các đợt cao điểm bình chọn và đăng ký sự kiện của hàng chục ngàn sinh viên',
+        en: 'Maintains stability during high-traffic voting and event registrations across tens of thousands of users',
       },
       {
-        vi: 'Hệ thống quản trị nội dung (CMS) hỗ trợ xuất bản tin bài, biểu mẫu và sự kiện phong trào',
-        en: 'Administrative CMS for editors to publish articles, guidelines, and event schedules',
+        vi: 'Hệ thống CMS cho phép ban biên tập đăng tải văn bản, biểu mẫu và tin tức sự kiện',
+        en: 'Administrative CMS for editors to publish guidelines, forms, and event announcements',
       },
       {
-        vi: 'Bàn giao thương mại thành công, đang hoạt động chính thức trên môi trường Production',
-        en: 'Successful commercial client handover, deployed to high-availability live production',
+        vi: 'Bàn giao nghiệm thu thực tế, đang vận hành chính thức trên môi trường Production',
+        en: 'Delivered and verified in production, running continuously for real-world client operations',
       },
     ],
     tags: ['Next.js', 'Mantine UI', 'MongoDB', 'Cloudinary', 'Production', 'Client Handover'],
     demoUrl: 'https://doanhoihutech.vn/',
     isPrivate: true,
     metrics: {
-      vi: 'Hàng chục ngàn sinh viên sử dụng • Live Production',
-      en: 'Tens of Thousands Active Students • Live Production',
+      vi: 'Hơn 30.000 Sinh Viên • Vận Hành Thực Tế',
+      en: '30,000+ Active Students • Live Production',
     },
   },
   {
@@ -102,12 +102,12 @@ const PROJECTS: ProjectItem[] = [
     subtitle: 'Enterprise Supply Chain Platform',
     category: 'ENTERPRISE',
     description: {
-      vi: 'Hệ thống quản lý kho thông minh doanh nghiệp xây dựng trên .NET 10 & C#, kiểm soát chuỗi cung ứng đa kho với tính toàn vẹn giao dịch ACID tuyệt đối.',
-      en: 'Enterprise-grade smart inventory management platform built with .NET 10 & C#, managing multi-warehouse supply chains with strict ACID transaction integrity.',
+      vi: 'Phần mềm quản lý kho vật tư doanh nghiệp viết bằng .NET 10 và C#, kiểm soát điều chuyển hàng hóa đa kho theo thời gian thực.',
+      en: 'Enterprise supply-chain and warehouse management software built with .NET 10 and C#, tracking real-time material transfers across multiple facilities.',
     },
     architecture: {
-      vi: 'Kiến trúc phân tầng Clean Architecture (Business, Data, Common, UI). Tầng dữ liệu kết hợp Entity Framework Core và ADO.NET tối ưu. Toàn bộ quy trình duyệt phiếu nhập/xuất kho, cập nhật tồn và ghi log kiểm toán được đóng gói trong một Database Transaction duy nhất. Phân quyền RBAC đa cấp.',
-      en: 'Multi-layer Clean Architecture (.NET 10, EF Core, ADO.NET). Entire slip approval lifecycle, inventory balance adjustments, and audit trail entries execute within unified atomic database transactions. Enterprise Role-Based Access Control (ADMIN, WAREHOUSE_MANAGER, STAFF).',
+      vi: 'Mã nguồn tổ chức theo Clean Architecture nhằm tách biệt hoàn toàn nghiệp vụ kho khỏi tầng dữ liệu Entity Framework Core. Mọi bước duyệt phiếu, cập nhật tồn kho và ghi nhật ký kiểm toán đều thực thi trong một Database Transaction duy nhất để bảo đảm dữ liệu không lệch khi mất kết nối mạng. Hệ thống tự động kết xuất báo cáo Excel qua ClosedXML và in chứng từ PDF khổ A4 bằng QuestPDF.',
+      en: 'Structured under Clean Architecture to completely decouple business logic from EF Core data persistence. Slip approvals, inventory balance updates, and audit logging execute inside single database transactions to guarantee ledger consistency. Exports automated Excel reports via ClosedXML and standardized A4 PDF receipts using QuestPDF.',
     },
     keyPoints: [
       {
@@ -140,12 +140,12 @@ const PROJECTS: ProjectItem[] = [
     subtitle: 'Ultra-Low Latency Audio Workstation',
     category: 'DESKTOP APP',
     description: {
-      vi: 'Phần mềm phát nhạc sự kiện, soundboard và audio cue chuyên nghiệp độ trễ siêu thấp (< 1ms) dành cho kỹ thuật viên âm thanh, đạo diễn sân khấu và DJ trên Ubuntu Linux & Windows.',
-      en: 'Professional ultra-low latency (< 1ms) audio cue, soundboard, and stage playback workstation for sound engineers, stage directors, and live events on Ubuntu Linux & Windows.',
+      vi: 'Phần mềm soundboard và audio cue chuyên dụng cho kỹ thuật viên âm thanh sự kiện và đạo diễn sân khấu, chạy độc lập trên Ubuntu Linux và Windows.',
+      en: 'Dedicated soundboard and audio cue software for live event sound engineers and stage directors, running natively on Ubuntu Linux and Windows.',
     },
     architecture: {
-      vi: 'Xây dựng trên nền tảng Tauri v2 (Rust backend kết hợp React 19 & TypeScript). Giải nén toàn bộ luồng âm thanh trực tiếp trên RAM để kích hoạt tức thì. Cột đèn Stereo L/R VU Meter chuẩn đài truyền hình (IEC 60268-10) render bằng Canvas 2D siêu nhẹ (0% CPU/GPU khi đứng yên). Hỗ trợ 2 chế độ phát: Đa âm (Polyphonic) và Độc quyền mờ dần (Solo Smooth Fade-Out).',
-      en: 'Architected with Tauri v2 (Rust backend paired with React 19 & TypeScript). Audio tracks decoded directly into RAM for instant triggering (< 1ms). Broadcast-grade Stereo VU Meter (IEC 60268-10 standard) rendered with hardware-accelerated 2D Canvas (0% idle overhead). Features dual playback modes: Polyphonic layering and Solo Smooth Fade-Out.',
+      vi: 'Kết hợp backend Rust (Tauri v2) với frontend React 19 để giảm độ trễ kích hoạt âm thanh xuống dưới 1ms. Toàn bộ file nhạc được giải nén sẵn vào RAM nhằm tránh nghẽn đọc ổ đĩa trong lúc diễn live. Cột VU Meter Stereo L/R vẽ trực tiếp bằng Canvas 2D theo chuẩn đài truyền hình IEC 60268-10, tự động chuyển về chế độ nghỉ 0% tải khi không có âm thanh phát ra.',
+      en: 'Pairs a Rust backend (Tauri v2) with React 19 to trigger audio cues in under 1ms. Decodes full audio tracks into RAM upfront to eliminate disk I/O bottlenecks during live shows. The Stereo VU Meter renders directly on 2D Canvas under broadcast standard IEC 60268-10, dropping to 0% CPU/GPU overhead when idle.',
     },
     keyPoints: [
       {
@@ -175,12 +175,12 @@ const PROJECTS: ProjectItem[] = [
     subtitle: 'Autonomous AI Coding Engine',
     category: 'AI SYSTEM',
     description: {
-      vi: 'Nền tảng điều phối đa tác nhân AI tự hành tại máy cục bộ (local), phân phối công việc thông minh giữa các coding CLI hàng đầu với cơ chế kiểm thử an toàn.',
-      en: 'Local autonomous multi-agent orchestration engine, coordinating tasks across elite coding CLIs with isolated verification sandboxes.',
+      vi: 'Công cụ dòng lệnh điều phối nhiều tác nhân AI lập trình song song trên máy cục bộ, kiểm tra mã nguồn tự động trước khi ghi nhận thay đổi.',
+      en: 'CLI engine that coordinates multiple autonomous AI coding agents locally, running automated tests before applying changes to working branches.',
     },
     architecture: {
-      vi: 'Hệ thống phân tán viết bằng Python 3.11+. Sử dụng Git Worktree độc lập để cô lập môi trường lập trình của từng agent, ngăn ngừa xung đột mã nguồn. Tích hợp Model Context Protocol (MCP) server, Copilot Chat @hub và cơ chế lưu vết checkpoint bền vững cho phép khôi phục tác vụ khi cạn quota.',
-      en: 'Distributed multi-agent orchestration engine in Python 3.11+. Isolates coding agents inside temporary Git worktrees to prevent workspace contamination. Features custom MCP tool server, Copilot Chat @hub participant, and durable checkpoint recovery for interrupted long-running tasks.',
+      vi: 'Hệ thống viết bằng Python 3.11+, sử dụng Git Worktree để cấp cho mỗi agent một môi trường làm việc độc lập nhằm ngăn xung đột tệp. Tích hợp Model Context Protocol (MCP) server để cung cấp công cụ đọc ghi an toàn. Khi tiến trình bị ngắt do hết hạn ngạch API, trạng thái tác vụ có thể khôi phục nguyên vẹn từ tệp checkpoint cục bộ.',
+      en: 'Developed in Python 3.11+, using isolated Git Worktrees to give each agent a clean environment without workspace collision. Integrates an MCP server for bounded tool execution, with local checkpoint recovery to resume interrupted tasks after quota limits.',
     },
     keyPoints: [
       {
@@ -209,25 +209,25 @@ const PROJECTS: ProjectItem[] = [
     subtitle: 'Modern Developer Portfolio',
     category: 'PORTFOLIO',
     description: {
-      vi: 'Web Portfolio cá nhân phong cách Dark Mode OLED chuẩn mực, xây dựng bằng Next.js 15, Tailwind CSS, Lucide Icons và bộ quy chuẩn thiết kế UI/UX Pro Max.',
-      en: 'Architectural-grade personal portfolio built with Next.js 15, Tailwind CSS, Lucide Icons, and UI/UX Pro Max design intelligence.',
+      vi: 'Trang web cá nhân hiển thị hồ sơ năng lực và các dự án kỹ thuật, tối ưu tốc độ tải trang và áp dụng chính sách bảo mật HTTP nghiêm ngặt.',
+      en: 'Personal developer portfolio presenting technical projects and capabilities, optimized for fast rendering and hardened with strict HTTP security headers.',
     },
     architecture: {
-      vi: 'Thiết kế theo chuẩn Zero Root Clutter và kiến trúc Feature-Driven. Tối ưu typography kép (JetBrains Mono cho code/tiêu đề và IBM Plex Sans cho nội dung). Đạt chuẩn tương phản tiếp cận WCAG 2.1 với 100/100 Lighthouse performance.',
-      en: 'Architected under Zero Root Clutter and Feature-Driven design. Dual typography (JetBrains Mono for headers/code and IBM Plex Sans for body UI). Fully WCAG 2.1 compliant with 100/100 Lighthouse score.',
+      vi: 'Ứng dụng xây dựng trên Next.js 15 App Router và React 19, định dạng giao diện bằng Tailwind CSS v4 với hai tông màu Dark OLED và Light. Bảo mật toàn diện với Content-Security-Policy sử dụng Nonce động trong Middleware, giúp chặn đứng rủi ro XSS mà không làm gián đoạn hydration của React, đạt điểm A+ trên SecurityHeaders.com.',
+      en: 'Engineered with Next.js 15 App Router and React 19, styled with Tailwind CSS v4 supporting OLED Dark and Light modes. Enforces strict Content-Security-Policy with dynamic nonces in Edge Middleware to eliminate XSS risks without breaking React hydration, earning an A+ grade on SecurityHeaders.com.',
     },
     keyPoints: [
       {
-        vi: 'Hỗ trợ chuyển đổi Theme (Dark OLED / Light Mode) và Song ngữ (VI / EN) tức thì',
-        en: 'Instant Theme toggle (OLED Dark / Light) and persistent Bilingual i18n switcher',
+        vi: 'Chuyển đổi tức thì giữa Theme Dark OLED / Light và bộ chuyển đổi song ngữ VI / EN',
+        en: 'Instant theme switching between OLED Dark / Light and persistent bilingual switcher',
       },
       {
-        vi: 'Giao diện tương thích hoàn hảo từ Mobile (375px) tới Màn hình lớn (1440px+)',
-        en: '100% responsive fluid layout spanning mobile (375px) to ultra-wide displays (1440px+)',
+        vi: 'Tương thích đa kích thước từ màn hình điện thoại 375px đến màn hình lớn 1440px+',
+        en: 'Responsive layout across mobile screens (375px) to ultra-wide desktop displays (1440px+)',
       },
       {
-        vi: 'Xác thực runtime form liên hệ an toàn bằng Zod schema',
-        en: 'Zero unhandled exceptions with Zod runtime boundary validation',
+        vi: 'Kiểm tra dữ liệu form liên hệ ngay tại runtime bằng Zod schema',
+        en: 'Runtime form payload validation enforced with Zod schemas',
       },
     ],
     tags: ['Next.js 15', 'React 19', 'Tailwind CSS', 'Lucide Icons', 'Zod', 'OLED Dark', 'i18n'],
