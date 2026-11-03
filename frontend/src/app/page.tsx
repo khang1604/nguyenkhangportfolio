@@ -135,6 +135,45 @@ const PROJECTS: ProjectItem[] = [
     },
   },
   {
+    id: 'playmusic',
+    title: 'PlayMusic Studio',
+    subtitle: 'Ultra-Low Latency Audio Workstation',
+    category: 'DESKTOP APP',
+    description: {
+      vi: 'Phần mềm phát nhạc sự kiện, soundboard và audio cue chuyên nghiệp độ trễ siêu thấp (< 1ms) dành cho kỹ thuật viên âm thanh, đạo diễn sân khấu và DJ trên Ubuntu Linux & Windows.',
+      en: 'Professional ultra-low latency (< 1ms) audio cue, soundboard, and stage playback workstation for sound engineers, stage directors, and live events on Ubuntu Linux & Windows.',
+    },
+    architecture: {
+      vi: 'Xây dựng trên nền tảng Tauri v2 (Rust backend kết hợp React 19 & TypeScript). Giải nén toàn bộ luồng âm thanh trực tiếp trên RAM để kích hoạt tức thì. Cột đèn Stereo L/R VU Meter chuẩn đài truyền hình (IEC 60268-10) render bằng Canvas 2D siêu nhẹ (0% CPU/GPU khi đứng yên). Hỗ trợ 2 chế độ phát: Đa âm (Polyphonic) và Độc quyền mờ dần (Solo Smooth Fade-Out).',
+      en: 'Architected with Tauri v2 (Rust backend paired with React 19 & TypeScript). Audio tracks decoded directly into RAM for instant triggering (< 1ms). Broadcast-grade Stereo VU Meter (IEC 60268-10 standard) rendered with hardware-accelerated 2D Canvas (0% idle overhead). Features dual playback modes: Polyphonic layering and Solo Smooth Fade-Out.',
+    },
+    keyPoints: [
+      {
+        vi: 'Kích hoạt âm thanh tức thì (< 1ms), hỗ trợ điểm bắt đầu nhạc (Cue In Offset) chính xác đến mili-giây',
+        en: 'Instant audio triggering (< 1ms) with sub-second numerical Cue-In Offset precision',
+      },
+      {
+        vi: 'Bàn Master Fader & Cột VU Meter Stereo L/R chuẩn đài truyền hình với thuật toán Ballistic Decay',
+        en: 'Broadcast-grade Master Fader and hardware-accelerated Stereo VU Meter with ballistic decay',
+      },
+      {
+        vi: 'Cơ chế an toàn sân khấu: Nút Panic Stop chống quẹt nhầm phím và lưu/nạp kịch bản show (Preset JSON)',
+        en: 'Stage fail-safe Panic Stop protection and full event preset serialization (.json)',
+      },
+      {
+        vi: 'Đóng gói cài đặt đa nền tảng hoàn chỉnh: .deb, .AppImage (Linux) và .exe, .msi (Windows x64)',
+        en: 'Multi-platform packaging: Native .deb & .AppImage for Ubuntu Linux, and .exe & .msi for Windows x64',
+      },
+    ],
+    tags: ['Tauri v2', 'Rust', 'React 19', 'TypeScript', 'Web Audio API', 'Canvas 2D', 'Debian', 'Inno Setup'],
+    demoUrl: 'https://github.com/khang1604/playmusic/releases/tag/v1.0.11',
+    githubUrl: 'https://github.com/khang1604/playmusic',
+    metrics: {
+      vi: 'Độ Trễ < 1ms • Đa Nền Tảng Linux & Windows',
+      en: 'Latency < 1ms • Ubuntu Linux & Windows x64',
+    },
+  },
+  {
     id: 'multiagents',
     title: 'Multi Agents Orchestrator',
     subtitle: 'Autonomous AI Coding Engine',
@@ -555,7 +594,7 @@ function PortfolioAppContent() {
                   <span>{t.skills.frontend}</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Mantine UI', 'Vite'].map(
+                  {['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Tauri v2', 'Mantine UI'].map(
                     (tech) => (
                       <span
                         key={tech}
@@ -578,7 +617,7 @@ function PortfolioAppContent() {
                   <span>{t.skills.backend}</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {['.NET 10', 'C#', 'Node.js', 'FastAPI', 'EF Core', 'ADO.NET', 'JSend API'].map(
+                  {['.NET 10', 'C#', 'Rust', 'Node.js', 'FastAPI', 'EF Core', 'ADO.NET'].map(
                     (tech) => (
                       <span
                         key={tech}

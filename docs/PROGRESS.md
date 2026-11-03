@@ -1,23 +1,21 @@
 # Project Progress & Handoff Log: NguyenKhangPortfolio
 
-### Session Status [2026-11-01 21:05]
-- **Task:** Upgrade CSP to Cryptographic Nonce Middleware for Grade A+ on SecurityHeaders.com | **State:** Completed (100%)
-- **Tech Stack:** Next.js 15.5+ App Router, Dynamic CSP Nonces, Middleware, Vercel Edge
+### Session Status [2026-11-03 12:57]
+- **Task:** Showcase PlayMusic Studio on Developer Portfolio | **State:** Completed (100%)
+- **Tech Stack:** Next.js 15.5+ App Router, Tauri v2, Rust, React 19, TypeScript
 - **Target Location:** `C:\Project\NguyenKhangPortfolio`
 
 #### Completed Deliverables:
-1. **Dynamic CSP Nonce Architecture (`frontend/src/middleware.ts`):**
-   - Implemented per-request cryptographically secure nonce via `crypto.randomUUID()`.
-   - Set strict `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://va.vercel-scripts.com`.
-   - Completely eradicated `'unsafe-inline'` and `'unsafe-eval'` from `script-src` directive.
-   - Forwarded `x-nonce` to Next.js server runtime via request headers for automatic framework script noncing.
-2. **Server Component & Layout Integration (`frontend/src/app/layout.tsx`):**
-   - Retrieved dynamic nonce via `await headers()`.
-   - Injected `nonce={nonce}` into theme bootstrap inline script to prevent CSP execution violations.
-3. **Optimized Next.js Config (`frontend/next.config.mjs`):**
-   - Cleaned static headers, delegating dynamic CSP to middleware while preserving HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy.
-4. **Verification & Testing:**
-   - Typecheck and production build passed with 0 errors (`npm run typecheck` & `next build`).
+1. **Added PlayMusic Studio to Featured Projects:**
+   - Category: `DESKTOP APP`
+   - Metric: `Độ Trễ < 1ms • Đa Nền Tảng Linux & Windows` / `Latency < 1ms • Ubuntu Linux & Windows x64`
+   - Bilingual description, architecture deep-dive (Tauri v2 + Rust, 2D Canvas IEC 60268-10 VU Meter, RAM decoding, Polyphonic & Solo Exclusive modes).
+   - Linked to GitHub repo (`https://github.com/khang1604/playmusic`) and GitHub Releases v1.0.11 (`.deb`, `.AppImage`, `.exe`, `.msi`).
+2. **Updated Tech Stack Showcase:**
+   - Added `Tauri v2` to Frontend/Desktop tools and `Rust` to Backend skills.
+3. **Verified Code Quality & Pre-Commit Diagnostics:**
+   - `npm run typecheck` passed with 0 errors.
+   - `npm run lint` passed with 0 errors.
 
 #### Live Production URLs:
 - **Primary Domain:** [https://nguyenkhang-portfolio.vercel.app](https://nguyenkhang-portfolio.vercel.app)
